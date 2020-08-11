@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 
 
 
-function Home () {
+function Resources () {
 
     return (
     <Container fluid>
@@ -17,4 +17,4 @@ function Home () {
     )
 }
 
-export default Home;
+export default Resources;

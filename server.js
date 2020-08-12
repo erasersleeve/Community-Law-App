@@ -17,7 +17,8 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/crimedb"
+
+  process.env.MONGODB_URI || "mongodb://localhost/CrimeDb"
 );
 
 // Start the API server

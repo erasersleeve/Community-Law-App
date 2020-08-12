@@ -15,10 +15,10 @@ function Navbar() {
                         <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
                     </li>
                     <li className="nav-item active">
-                        <Link to="/portfolio" className={location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}>Map</Link>
+                        <Link to="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Link>
                     </li>
                     <li className="nav-item active">
-                        <Link to="/contact" className={location.pathname === "/contact" ? "nav-link active" : "nav-link"}>Sign Out</Link>
+                        <Link to="/signout" className={location.pathname === "/signout" ? "nav-link active" : "nav-link"}>Sign Out</Link>
                     </li>
                 </ul>
         </nav>

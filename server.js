@@ -17,6 +17,10 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
+<<<<<<< HEAD
+=======
+
+>>>>>>> 793b85b5143ef685b9f3017fef144952d82b0bdb
   process.env.MONGODB_URI || "mongodb://localhost/CrimeDb"
 );
 

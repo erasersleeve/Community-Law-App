@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const postRoutes = require("./posts");
 
 //Book Routes
 router.use();

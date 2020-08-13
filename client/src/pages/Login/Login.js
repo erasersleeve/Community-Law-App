@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import Navbar from "../../components/Navbar";
+import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { Card, Modal, Nav, Button } from 'react-bootstrap';
 
 
 
-function Login () {
+function Login() {
 
     return (
-    <Container fluid>
+        <Container fluid>
 
-        <Navbar />
+            <NavBar />
 
-        <Footer />
-    </Container>
+            <Footer />
+        </Container>
     )
 }
 

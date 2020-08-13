@@ -18,6 +18,9 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/map" component={Map} />
         <Route exact path="/resources" component={Resources} />
+        {this.state.loggedIn &&
+          <p>Join the party, {this.state.username}!</p>
+        }
     </main>
     
 </Router>

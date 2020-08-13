@@ -3,6 +3,7 @@ const postRoutes = require("./posts");
 
 //Book Routes
 router.use("/posts", postRoutes);
+router.use("/users", userRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {

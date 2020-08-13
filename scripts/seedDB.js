@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-<<<<<<< HEAD
-// This file empties the Books collection and inserts the books below
-=======
-
->>>>>>> 793b85b5143ef685b9f3017fef144952d82b0bdb
 
 mongoose.connect(
   process.env.MONGODB_URI ||
@@ -65,7 +60,3 @@ db.User
     console.error(err);
     process.exit(1);
   });
-<<<<<<< HEAD
-=======
-
->>>>>>> 793b85b5143ef685b9f3017fef144952d82b0bdb

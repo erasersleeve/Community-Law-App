@@ -2,7 +2,7 @@ const router = require("express").Router();
 const postRoutes = require("./posts");
 
 //Book Routes
-router.use();
+router.use("/posts", postRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {

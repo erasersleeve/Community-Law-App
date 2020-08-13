@@ -7,17 +7,33 @@ const passport = require("./config/passport");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 
+const dbConnection = require('./database')
+const user = require('./routes/api')
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({ secret: "keyboard cat", resave: false, saveUninitialized: false })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use( (req, res, next) => {
+  console.log('req.session', req.session);
+  return next();
+});
+
+// //Log:
+// req.session Session {
+//  cookie:
+//   { path: '/',
+//     _expires: null,
+//     originalMaxAge: null,
+//     httpOnly: true } }
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -28,7 +44,8 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+
+  process.env.MONGODB_URI || "mongodb://localhost/CrimeDb"
 );
 
 // Start the API server

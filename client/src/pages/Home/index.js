@@ -1,1 +1,1 @@
-export { default } from "./Searched.js";
+export { default } from "./Home.js";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Navbar from "../../components/Navbar";
+import { Container } from "../../components/Grid";
+import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 
@@ -10,7 +10,7 @@ function SignUp () {
     return (
     <Container fluid>
 
-        <Navbar />
+        <NavBar />
 
         <Footer />
     </Container>

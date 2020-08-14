@@ -25,7 +25,7 @@ function NavBar() {
                 <Navbar>
                     <Navbar.Brand href="/home">Navbar</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
+                        <Nav.Link href="/login" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
                         <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
                         <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
                         <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>

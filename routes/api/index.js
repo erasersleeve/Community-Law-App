@@ -10,7 +10,7 @@ const { User } = require("../../models");
 const userRoutes = require("./user")
 
 //Book Routes
-router.use(postRoutes);
+router.use("/posts", postRoutes);
 router.use("/user", userRoutes)
 
 // For anything else, render the html page

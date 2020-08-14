@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Navbar from "../../components/Navbar";
+import { Container } from "../../components/Grid";
+import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./index.css";
 import axios from "axios";
@@ -59,6 +59,7 @@ function SignUp(){
         value={password}
         onChange={(event) => setPassword(event.target.value)}
         />
+        <NavBar />
 
         <button onClick={handleSubmit}>Login</button>
     </div>

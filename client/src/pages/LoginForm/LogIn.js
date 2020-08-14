@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container, NavBar } from "react-bootstrap";
+// import NavBar from "react-bootstrap";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -38,29 +39,35 @@ const LoginForm = () => {
     <Redirect to={redirectTo} />
   ) : (
     <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
-          </Card.Text>
-          <Card.Text>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-          </Card.Text>
-          <Button variant="primary"onClick={handleClick}>Login</Button>
-        </Card.Body>
-      </Card>
+      <Container fluid>
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </Card.Text>
+            <Card.Text>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Password"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </Card.Text>
+            <Button variant="primary" onClick={handleClick}>
+              Login
+            </Button>
+          </Card.Body>
+        </Card>
+      </Container>
     </div>
   );
 };

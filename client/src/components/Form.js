@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 
-const Example = (props) => {
+const submissionForm = (props) => {
   return (
     <Form>
         <FormGroup>
@@ -38,4 +38,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default submissionForm;

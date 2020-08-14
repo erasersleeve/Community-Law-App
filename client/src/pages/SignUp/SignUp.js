@@ -4,6 +4,7 @@ import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -14,6 +15,7 @@ function SignUp () {
         email: "",
         password: ""
       })
+      const [redirectTo, setRedirectTo] = useState("")
 
       function handleFormSubmit(event) {
         event.preventDefault();
@@ -23,10 +25,39 @@ function SignUp () {
             email: formObject.email,
             password: formObject.password
           })
-            .then(console.log("form submitted: ",formObject))
-            .catch(err => console.log(err));
+
+
+        .then(res => {
+            console.log(res)
+            if(res.data){
+                console.log("form submitted: ",formObject)
+                setRedirectTo("/login")
+            } else {
+                console.log("Error with sign up")
+            }
+            })
+        .catch(err => console.log(err));
+
+
         }
       };
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -36,6 +67,7 @@ function SignUp () {
     
   };
     return (
+        redirectTo ? <Redirect to={redirectTo}/> :
     <Container fluid>
 
         <NavBar />
@@ -55,6 +87,7 @@ function SignUp () {
               />
               <Input
                 onChange={handleInputChange}
+                type="password"
                 name="password"
                 placeholder="password"
                 value={formObject.password}

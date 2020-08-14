@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormGroup, Label, Input} from 'reactstrap';
+import {Form, FormGroup, Label, Input, CustomInput} from 'reactstrap';
 
 const submissionForm = (props) => {
   return (

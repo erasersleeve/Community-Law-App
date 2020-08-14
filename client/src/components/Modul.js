@@ -1,10 +1,9 @@
-import React from "react";
-import Modal from 'react-bootstrap/Modal';
-import ModalHeader from 'react-bootstrap/ModalHeader';
-import ModalBody from 'react-bootstrap/ModalBody';
+import React, { useState } from "react";
+// import Modal from 'react-bootstrap/Modal';
 import submissionForm from "./Form";
+import {ModalHeader, MoralBody, Modal, Button} from 'reactstrap';
 
-function MapsModul() {
+function MapsModal() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -36,6 +35,6 @@ function MapsModul() {
     );
   }
   
-  render(<MapsModul />);
+//   render(<MapsModal />);
 
-  export default MapsModul;
+  export default MapsModal;

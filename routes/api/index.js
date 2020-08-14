@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const postRoutes = require("./posts");
 
-const userRoutes = require("./users");
+const userRoutes = require("./user");
 
 //Routes
 router.use("/posts", postRoutes);
-router.use("/users", userRoutes);
+router.use("/user", userRoutes);
 
 const postController = require("../../controllers/postsController.js")
 const passport = require("passport");
@@ -14,7 +14,6 @@ const path = require("path");
 
 const db = require("../../models");
 const { User } = require("../../models");
-const userRoutes = require("./user")
 
 
 

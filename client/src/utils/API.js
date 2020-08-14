@@ -12,7 +12,7 @@ export default {
   // Saves a user to the database
   saveUser: function(userData) {
     console.log(userData);
-    return axios.post("/api/users", userData);
+    return axios.post("/api/user/signup", userData);
   },
   // Deletes the post with the given id
   deletePost: function(id) {
@@ -20,7 +20,7 @@ export default {
   },
   // Gets all users
   getUsers: function() {
-    return axios.get("/api/users");
+    return axios.get("/api/user");
   },
  
 };

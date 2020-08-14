@@ -4,7 +4,7 @@ mongoose.promise = Promise
 
 const Schema = mongoose.Schema;
 
-// BACKTEAM CREATED DATABASE SEEDS!!!!
+
 const UserSchema = new Schema({
   name: {
     type: String,

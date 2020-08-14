@@ -30,8 +30,14 @@
     "google-maps-react": "^2.0.6",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.28",
+
+    "prop-types": "^15.7.2",
+    "react-strap": "0.0.1",
+    "reactstrap": "^8.5.1"
+
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2"
+
   }
 }

@@ -1,5 +1,12 @@
 const router = require("express").Router();
 const postRoutes = require("./posts");
+
+const userRoutes = require("./users");
+
+//Routes
+router.use("/posts", postRoutes);
+router.use("/users", userRoutes);
+
 const postController = require("../../controllers/postsController.js")
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
@@ -9,9 +16,8 @@ const db = require("../../models");
 const { User } = require("../../models");
 const userRoutes = require("./user")
 
-//Book Routes
-router.use("/posts", postRoutes);
-router.use("/user", userRoutes)
+
+
 
 // For anything else, render the html page
 // router.use(function(req, res) {

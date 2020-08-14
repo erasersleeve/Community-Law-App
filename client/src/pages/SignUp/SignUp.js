@@ -4,24 +4,29 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./index.css";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 function SignUp(){
 
-    const handleSubmit=(event)=>{
+    const [name, setName] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [redirectTo, setRedirectTo] = useState("")
+
+    const handleSubmit=() => {
         console.log("sign-up-form, username: ");
-        console.log(this.state.username);
+        console.log(username);
         // REQUEST TO SERVER GOES HERE
-        axios.post("/", {
-            username: this.state.username,
-            password: this.state.password
+        axios.post("/api/user/signup", {
+            name: name,
+            username: username,
+            password: password
         })
         .then(res => {
             console.log(res)
             if(res.data){
                 console.log("Sign up is successful")
-                this.setState({
-                    redirectTo: "/login"
-                })
+                setRedirectTo("/login")
             } else {
                 console.log("Error with sign up")
             }
@@ -32,16 +37,30 @@ function SignUp(){
     }
 
     return (
+       redirectTo ? <Redirect to={redirectTo}/> : 
     <div>
         <input
         type="text"
-        name="username"
-        value={this.state.username}
-        onChange={this.state.handleChange}
+        name="name"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
         />
 
-        <input type="password" placeholder="Password"></input>
-        <button>Login</button>
+        <input
+        type="text"
+        name="username"
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
+        />
+        
+        <input
+        type="password"
+        name="password"
+        value={password}
+        onChange={(event) => setPassword(event.target.value)}
+        />
+
+        <button onClick={handleSubmit}>Login</button>
     </div>
     )
 }

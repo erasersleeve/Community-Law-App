@@ -3,23 +3,47 @@ import { Col, Row, Container } from "../../components/Grid";
 import MapContainer from "./MapContainer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Button } from 'reactstrap';
+import { Button, Modal } from 'react-bootstrap';
+import Form from "../../components/Form"
+// import MapsModal from "../../components/Modul";
+
 
 
 function Map() {
-    const [latLng, setLatLng] = useState({lat: 39.9526, lng: -75.1652});
+
+    const [lgShow, setShow] = useState(false);
+    // const [lgShow, setLgShow] = useState(false);
+
+    const [latLng, setLatLng] = useState({ lat: 39.9526, lng: -75.1652 });
 
     const getLatLng = (coordinates) => {
         setLatLng(coordinates.latLng.toJSON());
+
+
     };
 
     return (
         <Container fluid>
             <Navbar />
-            <Button>Submit</Button>
-            <Container>
+            <Button onClick={() => setShow(true)}>Submit Incident</Button>
+            <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setShow(false)}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        Incident Report
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form />
+                </Modal.Body>
+            </Modal>
+
+            {/* <Container> */}
                 <MapContainer clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} />
-            </Container>
+            {/* </Container> */}
             <Footer />
         </Container>
     )

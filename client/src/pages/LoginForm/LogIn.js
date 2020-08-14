@@ -6,14 +6,14 @@ import { Card, Button, Container, NavBar } from "react-bootstrap";
 // import NavBar from "react-bootstrap";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirectTo, setRedirectTo] = useState("");
 
   const handleClick = (event) => {
     axios
       .post("/api/user/login", {
-        username: username,
+        email: email,
         password: password,
       })
       .then((res) => {
@@ -23,7 +23,7 @@ const LoginForm = () => {
           //   update App.js state
           //   this.props.updateUser({
           //     loggedIn: true,
-          //     username: res.data.username,
+          //     email: res.data.email,
           //   });
           // update the state to redirect to home
           setRedirectTo("/");
@@ -47,10 +47,10 @@ const LoginForm = () => {
             <Card.Text>
               <input
                 type="text"
-                name="username"
-                placeholder="Username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </Card.Text>
             <Card.Text>

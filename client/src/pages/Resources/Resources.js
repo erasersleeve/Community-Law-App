@@ -21,11 +21,17 @@ const Styles = styled.div`
     .modal-content {
         width: 700px !important;
     }
-`
 
+    #example-modal-sizes-title-lg2 {
+        width: 90% !important;
+    }
+`
+const article = "https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/";
 
 
 function Resources() {
+    const [lgShow, setLgShow] = useState(false);
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -48,20 +54,30 @@ function Resources() {
                     <Button variant="primary" onClick={() => setShow(true)}>
                         Full Article
                     </Button>
-
-                    <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="full-article">
+                    <Modal
+                        size="lg"
+                        show={show}
+                        onHide={() => setShow(false)}
+                        dialogClassName="modal-90w"
+                        aria-labelledby="example-modal-sizes-title"
+                    >
                         <Modal.Header closeButton>
-                            <Modal.Title id="full-article">Modal heading</Modal.Title>
+                            <Modal.Title id="example-modal-sizes-title">
+                            Article
+                            </Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>
-                            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-                        </Modal.Body>
-                        <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
+                        <Container>
+                            
+                        </Container>
+            <Modal.Body>
+            {/* <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
+            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
+            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
+            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p> */}
+            </Modal.Body>
+
+        </Modal>
+
                 </Card.Body>
             </Card>
             <Footer />
@@ -71,3 +87,17 @@ function Resources() {
 }
 
 export default Resources;
+
+{/* <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="full-article">
+<Modal.Header closeButton>
+    <Modal.Title id="full-article">Modal heading</Modal.Title>
+</Modal.Header>
+<Modal.Body>
+    <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
+</Modal.Body>
+<Modal.Footer>
+<Button variant="secondary" onClick={handleClose}>
+    Close
+</Button>
+</Modal.Footer>
+</Modal> */}

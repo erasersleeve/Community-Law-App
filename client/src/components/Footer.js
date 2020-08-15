@@ -9,6 +9,7 @@ const Styles = styled.div `
         margin-right: -5%;
         margin-top: 30px;
         background-color: #111d4aff;
+        border: 2px #C0C0C0;
         bottom: 0;
         height: 40px;
         line-height: 40px;

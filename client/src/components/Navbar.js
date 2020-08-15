@@ -1,18 +1,34 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
 // import "./Navbar.css";
 
 const Styles = styled.div`
     .navbar {
-        background-color: #92140cff;
-        margin-bottom: 50px;
+        background-color: #111d4aff;
+        color: white;
+        margin-bottom: 20px;
         width: 105%;
         margin-left: -30px;
     }
 
+    .jumbotron {
+        margin-left: -15px;
+        margin-right: -15px;
+        background: #92140cff;
+        color: #B8B8B8;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #B8B8B8;
+    }
+
+    .navbar-light .navbar-brand {
+        color: white;
+    }
+    
 `
 
 function NavBar() {
@@ -22,8 +38,10 @@ function NavBar() {
         <header>
             <>
             <Styles>
+
                 <Navbar>
                     <Navbar.Brand href="/home">Navbar</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav Toggle navigation" />
                     <Nav className="mr-auto">
                         <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
                         <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
@@ -32,6 +50,11 @@ function NavBar() {
                         <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
                     </Nav>
                 </Navbar>
+
+                <Jumbotron className="jumbo fluid">
+                    <h2>Public Feed</h2>
+                </Jumbotron>
+
             </Styles>
             </>
 

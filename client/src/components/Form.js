@@ -1,39 +1,28 @@
 import React from 'react';
-import {Form, FormGroup, Label, Input, CustomInput} from 'reactstrap';
+import { Form, Button, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 
 const submissionForm = (props) => {
   return (
-    <Form>
-        <FormGroup>
-        <Label for="userName">User: (prop a name)</Label>
-        <Input plaintext value="Enter username here" />
+    <Form onSubmit={props.submit}>
+      <FormGroup>
+        <Label>Incident Description</Label>
+        <Input type="description" name="description" placeholder="Description of Event (Required)"></Input>
       </FormGroup>
       <FormGroup>
-        <Label for="incidentDescription">Text Area</Label>
-        <Input type="textarea" name="text" id="description" />
+        <Label>Overall Experience</Label>
+        <Input type="select" as="select" name="experience" defaultValue="Choose.">
+          <option>Good</option>
+          <option>Bad</option>
+        </Input>
       </FormGroup>
       <FormGroup>
-        <Label for="badgeNum">Police Badge #</Label>
-        <Input
-          type="number"
-          name="number"
-          id="num"
-          placeholder="Enter number"
-        />
+        <Label>Officer Badge Number</Label>
+        <Input type="badge" name="badge" placeholder="Enter Officer Badge Number"></Input>
       </FormGroup>
       <FormGroup>
-        <Label for="exampleCheckbox">Good || Bad</Label>
-        <div>
-          <CustomInput type="switch" id="exampleCustomSwitch" name="customSwitch" label="Turn on this custom switch" />
-        </div>
+        <Input type="file" name="file" label="Upload Image" />
       </FormGroup>
-      <FormGroup>
-        <Label for="exampleCheckbox">Inline</Label>
-        <div>
-          <CustomInput type="checkbox" id="exampleCustomInline" label="Good" inline />
-          <CustomInput type="checkbox" id="exampleCustomInline2" label="bad" inline />
-        </div>
-        </FormGroup>
+      <Button>Submit</Button>
     </Form>
   );
 }

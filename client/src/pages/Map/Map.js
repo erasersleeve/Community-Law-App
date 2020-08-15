@@ -4,7 +4,7 @@ import MapContainer from "./MapContainer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Button, Modal } from 'react-bootstrap';
-import Form from "../../components/Form"
+import Form from "../../components/Form";
 // import MapsModal from "../../components/Modul";
 
 
@@ -18,8 +18,21 @@ function Map() {
 
     const getLatLng = (coordinates) => {
         setLatLng(coordinates.latLng.toJSON());
+    };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const data = {
+            description: form.get('description'),
+            experience: form.get('experience'),
+            badgeNumber: form.get('badge'),
+            file: form.get('file'),
+            lat: latLng.lat,
+            lng:  latLng.lng
+        };
 
+        console.log(data);
     };
 
     return (
@@ -37,7 +50,7 @@ function Map() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form />
+                    <Form submit={e=> {handleSubmit(e)}}/>
                 </Modal.Body>
             </Modal>
 

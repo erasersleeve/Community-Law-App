@@ -29,10 +29,14 @@ function Map() {
             badgeNumber: form.get('badge'),
             file: form.get('file'),
             lat: latLng.lat,
-            lng:  latLng.lng
+            lng:  latLng.lng,
+            date: new Date,
         };
 
-        console.log(data);
+        fetch("/api/reports", {
+            method: "POST",
+            body: data
+        });
     };
 
     return (

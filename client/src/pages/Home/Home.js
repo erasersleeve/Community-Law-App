@@ -21,7 +21,7 @@ const Styles = styled.div`
         min-width: 294px !important;
         height: auto;
         background-color: #fff8f0ff;
-        margin: 70px;
+        margin: 50px;
         color: #111d4aff;
         border-radius: 4px;
         box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
@@ -31,7 +31,7 @@ const Styles = styled.div`
         width: 20%;
         min-width: 273px !important;
         height: auto;
-        margin: 70px;
+        margin: 50px;
         box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
         cursor: pointer;
     }
@@ -67,7 +67,9 @@ const Styles = styled.div`
         width: 900px;
     }
 
-
+    .row {
+        // width: 110% !important;
+    }
 
 `
 
@@ -155,7 +157,7 @@ export default function Home () {
                 </Form.Control>
             </Form.Group>
             <Form.Group>
-                <Form.Label>Location Address</Form.Label>
+                <Form.Label>Officer's Badge Number</Form.Label>
                 <Form.Control type="badge" name="badge" placeholder="Enter Officer Badge Number"></Form.Control>
             </Form.Group>
             <Form.Group>
@@ -185,7 +187,7 @@ export default function Home () {
                         <Nav.Link variant="primary" onClick={() => setLgShow(true)}>
                         Map
                     </Nav.Link>
-                    <Container className="container">
+
                         <Modal
                             size="lg"
                             show={lgShow} 
@@ -203,7 +205,7 @@ export default function Home () {
                                 </Container>
                             {/* </Modal.Body> */}
                         </Modal>
-                    </Container>
+
                     </Nav.Item>
                     </Nav>
                 </Card.Header>

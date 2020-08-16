@@ -51,32 +51,31 @@ function Resources() {
                     <Card.Text>
                         <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
                     </Card.Text>
-                    <Button variant="primary" onClick={() => setShow(true)}>
+                    <Button href="https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/" target="_blank" variant="primary" onClick={() => setShow(true)}>
                         Full Article
                     </Button>
-                    <Modal
+                    {/* <Modal
+                        className="myModal"
                         size="lg"
                         show={show}
                         onHide={() => setShow(false)}
                         dialogClassName="modal-90w"
-                        aria-labelledby="example-modal-sizes-title"
+                    
                     >
                         <Modal.Header closeButton>
-                            <Modal.Title id="example-modal-sizes-title">
+                            <Modal.Title >
                             Article
                             </Modal.Title>
                         </Modal.Header>
                         <Container>
                             
                         </Container>
-            <Modal.Body>
-            {/* <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-            <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p> */}
+            <Modal.Body className="test">
+                <a href="https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/"></a>
+
             </Modal.Body>
 
-        </Modal>
+        </Modal> */}
 
                 </Card.Body>
             </Card>

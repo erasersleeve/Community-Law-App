@@ -6,39 +6,42 @@ import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-function SignUp(){
+function SignUp() {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirectTo, setRedirectTo] = useState("");
 
-    const [name, setName] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [redirectTo, setRedirectTo] = useState("")
+  const handleSubmit = () => {
+    console.log("sign-up-form, username: ");
+    console.log(username);
+    // REQUEST TO SERVER GOES HERE
+    axios
+      .post("/api/user/signup", {
+        name: name,
+        username: username,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          console.log("Sign up is successful");
+          setRedirectTo("/login");
+        } else {
+          console.log("Error with sign up");
+        }
+      })
+      .catch((error) => {
+        console.log("Sign up server error: ");
+        console.log(error);
+      });
+  };
 
-    const handleSubmit=() => {
-        console.log("sign-up-form, username: ");
-        console.log(username);
-        // REQUEST TO SERVER GOES HERE
-        axios.post("/api/user/signup", {
-            name: name,
-            username: username,
-            password: password
-        })
-        .then(res => {
-            console.log(res)
-            if(res.data){
-                console.log("Sign up is successful")
-                setRedirectTo("/login")
-            } else {
-                console.log("Error with sign up")
-            }
-        }).catch(error => {
-            console.log("Sign up server error: ")
-            console.log(error);
-        })
-    }
-
-    return (
-       redirectTo ? <Redirect to={redirectTo}/> : 
+  return redirectTo ? (
+    <Redirect to={redirectTo} />
+  ) : (
     <div>
+      {/* <NavBar />
         <input
         type="text"
         name="name"
@@ -59,15 +62,48 @@ function SignUp(){
         value={password}
         onChange={(event) => setPassword(event.target.value)}
         />
+        
+
+        <button onClick={handleSubmit}>Login</button> */}
+      <Container fluid>
         <NavBar />
 
-        <button onClick={handleSubmit}>Login</button>
+        <form>
+          {/* <Input
+            onChange={handleInputChange}
+            name="name"
+            placeholder="Username"
+            value={formObject.name}
+          /> */}
+          <Input
+            onChange={handleInputChange}
+            name="email"
+            placeholder="email"
+            value={formObject.email}
+          />
+          <Input
+            onChange={handleInputChange}
+            type="password"
+            name="password"
+            placeholder="password"
+            value={formObject.password}
+          />
+          <FormBtn
+            disabled={
+              !formObject.name && formObject.email && formObject.password
+            }
+            onClick={handleFormSubmit}
+          >
+            Register!
+          </FormBtn>
+        </form>
+        <Footer />
+      </Container>
     </div>
-    )
+  );
 }
 
 export default SignUp;
-
 
 // function SignUp () {
 

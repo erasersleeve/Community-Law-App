@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Card, Button, Container, NavBar } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
+import NavBar from "../../components/Navbar";
 // import NavBar from "react-bootstrap";
 
 const LoginForm = () => {
@@ -39,7 +40,7 @@ const LoginForm = () => {
     <Redirect to={redirectTo} />
   ) : (
     <div>
-      <Container fluid>
+      {/* <Container fluid>
         <Card style={{ width: "18rem" }}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
@@ -67,6 +68,41 @@ const LoginForm = () => {
             </Button>
           </Card.Body>
         </Card>
+      </Container> */}
+
+
+      <Container fluid>
+        <NavBar />
+        <form>
+          {/* <Input
+            onChange={handleInputChange}
+            name="name"
+            placeholder="Username"
+            value={formObject.name}
+          /> */}
+          <Input
+            onChange={handleInputChange}
+            name="email"
+            placeholder="email"
+            value={formObject.email}
+          />
+          <Input
+            onChange={handleInputChange}
+            type="password"
+            name="password"
+            placeholder="password"
+            value={formObject.password}
+          />
+          <FormBtn
+            disabled={
+              !formObject.name && formObject.email && formObject.password
+            }
+            onClick={handleFormSubmit}
+          >
+            Register!
+          </FormBtn>
+        </form>
+        <Footer />
       </Container>
     </div>
   );

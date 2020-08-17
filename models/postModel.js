@@ -2,9 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-  where: { type: String, required: true },
-  what: { type: String, required: true },
-  when: { type: Date, default: Date.now },
+  //change to lat lon
+  lat: { type: Number, required: true },
+  lng: { type: Number, requried: true },
+  description: { type: String, required: true },
+  experience: { type: Boolean, required: true},
+  badgeNumber: { type: String, required: false },
+  date: { type: Date, default: Date.now },
+  // file: {type: String, required: false}
 });
 
 const Post = mongoose.model("Post", postSchema);

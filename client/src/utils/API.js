@@ -1,15 +1,28 @@
 import axios from "axios";
 
-
-//here is where the back-end routes can talk to the client side pages.
-
-
-// The getRecipes method retrieves recipes from the server
-// It accepts a "query" or term to search the recipe api for
 export default {
-  getUsers: function(query) {
-    let content = axios.get("/api/google", { params: { q: query } })
-    console.log(content);
-    return axios.get("/api/google", { params: { q: query } });
-  }
+
+  //get all posts
+  getPosts: function() {
+    return axios.get("/api/posts");
+  },
+  // Gets the post with the given id
+  getPost: function(id) {
+    return axios.get("/api/posts/" + id);
+  },
+  // Saves a user to the database
+  saveUser: function(userData) {
+    console.log(userData);
+    return axios.post("/api/user/signup", userData);
+  },
+  // Deletes the post with the given id
+  deletePost: function(id) {
+    return axios.delete("/api/books/" + id);
+  },
+  // Gets all users
+  getUsers: function() {
+    return axios.get("/api/user");
+  },
+ 
 };
+

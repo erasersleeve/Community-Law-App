@@ -57,6 +57,7 @@ function NavBar() {
 
                 <Navbar expand="md">
                     <Navbar.Brand href="/home">Navbar</Navbar.Brand>
+
                     <Navbar.Toggle className="navbar-light" aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse className="navbar-light" id="basic-navbar-nav">
                         <Nav className="mr-auto">
@@ -67,6 +68,7 @@ function NavBar() {
                             <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+
                 </Navbar>
 {/* 
                 <div className="slideshow">

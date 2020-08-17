@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import MapContainer from "./MapContainer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Button, Modal } from 'react-bootstrap';
 import Form from "../../components/Form";
+import MapContainer from "./MapContainer";
+import GoogleHeatMap from "../../components/GoogleHeatMap";
 // import MapsModal from "../../components/Modul";
 
 
@@ -43,6 +44,7 @@ console.log(data)
     return (
         <Container fluid>
             <Navbar />
+            <GoogleHeatMap />
             <Button onClick={() => setShow(true)}>Submit Incident</Button>
             <Modal
                 size="lg"
@@ -55,12 +57,13 @@ console.log(data)
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form submit={e=> {handleSubmit(e)}}/>
+                    {/* <MapContainer clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} /> */}
+                    <Form clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} submit={e=> {handleSubmit(e)}}/>
+                    {/* <MapContainer /> */}
                 </Modal.Body>
             </Modal>
 
             {/* <Container> */}
-                <MapContainer clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} />
             {/* </Container> */}
             <Footer />
         </Container>

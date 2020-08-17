@@ -6,7 +6,11 @@ import SignUp from "./pages/SignUp";
 import Map from "./pages/Map"
 import Login from "./pages/Login"
 import Resources from "./pages/Resources";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import LoginForm from "./pages/LoginForm"
+
 // import Chart from "./pages/Chart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import "./style.css";
@@ -15,7 +19,7 @@ function App() {
   return (
     <>
     <Router>
-         
+    
     <main className="container-fluid">
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={SignUp} />

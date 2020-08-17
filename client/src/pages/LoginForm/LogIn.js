@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Card, Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import FormBtn from "../../components/Form/FormBtn";
+import Input from "../../components/Form/Input";
 import NavBar from "../../components/Navbar";
+import Footer from "../../components/Footer"
 // import NavBar from "react-bootstrap";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirectTo, setRedirectTo] = useState("");
 
   const handleClick = (event) => {
     axios
       .post("/api/user/login", {
-        username: username,
+        email: email,
         password: password,
       })
       .then((res) => {
@@ -24,7 +27,7 @@ const LoginForm = () => {
           //   update App.js state
           //   this.props.updateUser({
           //     loggedIn: true,
-          //     username: res.data.username,
+          //     email: res.data.email,
           //   });
           // update the state to redirect to home
           setRedirectTo("/");
@@ -40,67 +43,26 @@ const LoginForm = () => {
     <Redirect to={redirectTo} />
   ) : (
     <div>
-      {/* <Container fluid>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              <input
+      <Container fluid>
+        <NavBar />
+        <form>
+              <Input
                 type="text"
-                name="username"
-                placeholder="Username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
-            </Card.Text>
-            <Card.Text>
-              <input
+              <Input
                 type="password"
                 name="password"
                 value={password}
                 placeholder="Password"
                 onChange={(event) => setPassword(event.target.value)}
               />
-            </Card.Text>
-            <Button variant="primary" onClick={handleClick}>
+            <FormBtn variant="primary" onClick={handleClick}>
               Login
-            </Button>
-          </Card.Body>
-        </Card>
-      </Container> */}
-
-
-      <Container fluid>
-        <NavBar />
-        <form>
-          {/* <Input
-            onChange={handleInputChange}
-            name="name"
-            placeholder="Username"
-            value={formObject.name}
-          /> */}
-          <Input
-            onChange={handleInputChange}
-            name="email"
-            placeholder="email"
-            value={formObject.email}
-          />
-          <Input
-            onChange={handleInputChange}
-            type="password"
-            name="password"
-            placeholder="password"
-            value={formObject.password}
-          />
-          <FormBtn
-            disabled={
-              !formObject.name && formObject.email && formObject.password
-            }
-            onClick={handleFormSubmit}
-          >
-            Register!
-          </FormBtn>
+            </FormBtn>
         </form>
         <Footer />
       </Container>
@@ -109,3 +71,37 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+{/* //   <Container fluid>
+    //     <NavBar />
+    //     <form>
+    //       {/* <Input
+    //         onChange={handleInputChange}
+    //         name="name"
+    //         placeholder="Username"
+    //         value={formObject.name}
+    //       /> */}
+    {/* //       <Input */}
+    {/* //         onChange={handleInputChange}
+    //         name="email"
+    //         placeholder="email"
+    //         value={formObject.email}
+    //       />
+    //       <Input */}
+    {/* //         onChange={handleInputChange}
+    //         type="password"
+    //         name="password"
+    //         placeholder="password"
+    //         value={formObject.password}
+    //       />
+    //       <FormBtn */}
+    {/* //         disabled={ */}
+    {/* //           !formObject.name && formObject.email && formObject.password
+    //         }
+    //         onClick={handleFormSubmit}
+    //       >
+    //         Register!
+    //       </FormBtn> */}
+    {/* //     </form> */}
+    {/* //     <Footer />
+    //   </Container> */} 

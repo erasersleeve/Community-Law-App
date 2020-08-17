@@ -10,20 +10,19 @@ const UserSchema = new Schema({
     type: String,
     // unique: true
   },
-  username: {
+  email: {
     type: String,
     unique: true
   },
   password: {
-    type: String,
-    unique: true
+    type: String
   },
-  // posts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Post"
-  //   }
-  // ]
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Post"
+    }
+  ]
 });
 
 

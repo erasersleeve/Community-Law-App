@@ -109,16 +109,3 @@ function Resources() {
 
 export default Resources;
 
-{/* <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="full-article">
-<Modal.Header closeButton>
-    <Modal.Title id="full-article">Modal heading</Modal.Title>
-</Modal.Header>
-<Modal.Body>
-    <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-</Modal.Body>
-<Modal.Footer>
-<Button variant="secondary" onClick={handleClose}>
-    Close
-</Button>
-</Modal.Footer>
-</Modal> */}

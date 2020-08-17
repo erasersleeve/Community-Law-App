@@ -7,7 +7,6 @@ const mapStyles = {
 };
 
 function MapContainer(props) {
-  console.log("MapContainer:", props.positions);
   return (
     <Map
       google={props.google}

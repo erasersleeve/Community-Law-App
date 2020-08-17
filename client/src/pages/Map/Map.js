@@ -27,11 +27,12 @@ function Map() {
             description: form.get('description'),
             experience: form.get('experience'),
             badgeNumber: form.get('badge'),
-            file: form.get('file'),
+            // file: form.get('file'),
             lat: latLng.lat,
             lng: latLng.lng,
             date: new Date,
         }
+console.log(data)
 
         fetch("/api/posts", {
             method: "POST",

@@ -8,7 +8,7 @@ mongoose.connect(
 );
 
 
-const postSeed = [
+const userSeed = [
   {
     name: "",
     email: "",
@@ -27,9 +27,21 @@ const postSeed = [
   }  
 ];
 
-db.Post
+db.User
   .remove({})
-  .then(() => db.Post.collection.insertMany(userSeed))
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+  
+  db.User
+  .remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

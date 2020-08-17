@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Card, Button, Container, NavBar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import FormBtn from "../../components/Form/FormBtn";
+import Input from "../../components/Form/Input";
+import NavBar from "../../components/Navbar";
+import Footer from "../../components/Footer"
 // import NavBar from "react-bootstrap";
 
 const LoginForm = () => {
@@ -40,36 +44,64 @@ const LoginForm = () => {
   ) : (
     <div>
       <Container fluid>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              <input
+        <NavBar />
+        <form>
+              <Input
                 type="text"
                 name="email"
                 placeholder="Email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
-            </Card.Text>
-            <Card.Text>
-              <input
+              <Input
                 type="password"
                 name="password"
                 value={password}
                 placeholder="Password"
                 onChange={(event) => setPassword(event.target.value)}
               />
-            </Card.Text>
-            <Button variant="primary" onClick={handleClick}>
+            <FormBtn variant="primary" onClick={handleClick}>
               Login
-            </Button>
-          </Card.Body>
-        </Card>
+            </FormBtn>
+        </form>
+        <Footer />
       </Container>
     </div>
   );
 };
 
 export default LoginForm;
+
+{/* //   <Container fluid>
+    //     <NavBar />
+    //     <form>
+    //       {/* <Input
+    //         onChange={handleInputChange}
+    //         name="name"
+    //         placeholder="Username"
+    //         value={formObject.name}
+    //       /> */}
+    {/* //       <Input */}
+    {/* //         onChange={handleInputChange}
+    //         name="email"
+    //         placeholder="email"
+    //         value={formObject.email}
+    //       />
+    //       <Input */}
+    {/* //         onChange={handleInputChange}
+    //         type="password"
+    //         name="password"
+    //         placeholder="password"
+    //         value={formObject.password}
+    //       />
+    //       <FormBtn */}
+    {/* //         disabled={ */}
+    {/* //           !formObject.name && formObject.email && formObject.password
+    //         }
+    //         onClick={handleFormSubmit}
+    //       >
+    //         Register!
+    //       </FormBtn> */}
+    {/* //     </form> */}
+    {/* //     <Footer />
+    //   </Container> */} 

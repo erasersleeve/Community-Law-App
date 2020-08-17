@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import Input from "../../components/Form/Input";
+import FormBtn from "../../components/Form/FormBtn"
 import API from "../../utils/API";
 import { Redirect } from "react-router-dom";
-
-
 
 
 function SignUp () {
@@ -41,22 +40,6 @@ function SignUp () {
 
         }
       };
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       // Handles updating component state when the user types into the input field
@@ -105,5 +88,4 @@ function SignUp () {
 }
 
 export default SignUp;
-
 

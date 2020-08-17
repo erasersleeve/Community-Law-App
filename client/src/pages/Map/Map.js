@@ -29,11 +29,11 @@ function Map() {
             badgeNumber: form.get('badge'),
             file: form.get('file'),
             lat: latLng.lat,
-            lng:  latLng.lng,
+            lng: latLng.lng,
             date: new Date,
-        };
+        }
 
-        fetch("/api/reports", {
+        fetch("/api/posts", {
             method: "POST",
             body: data
         });

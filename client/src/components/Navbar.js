@@ -3,6 +3,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Nav, Jumbotron, Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Redirect } from "react-router-dom";
+import axios from "axios";
+import "./NavBar.css";
+
 // import "./Navbar.css";
 import Image from "../image/kelly-kiernan.jpeg";
 
@@ -47,28 +51,38 @@ const backgroundStyle = {
     "backgroundImage": Image
 }
 
-function NavBar() {
+function NavBar(props) {
     const location = useLocation();
 
+    // const [redirectTo, setRedirectTo] = useState("");
+
+    // const handleLogout = (event) => {
+    //     axios
+    //       .post("/api/user/logout")
+    //       .then((res) => {
+    //         console.log(res);
+    //         if (res.status === 200) {
+
+    //           setRedirectTo("/");
+    //         }
+    //       })
+    //   };
+
     return (
+
         <header>
             <>
             <Styles>
 
                 <Navbar expand="md">
                     <Navbar.Brand href="/home">Navbar</Navbar.Brand>
-
-                    <Navbar.Toggle className="navbar-light" aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="navbar-light" id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
-                            <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
-                            <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
-                            <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
-                            <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/login" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Sign Up/Login</Nav.Link>
+                        <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
+                        <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
+                        <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                        <Nav.Link onClick={props.handleLogout} className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Log Out</Nav.Link>
+                    </Nav>
                 </Navbar>
 {/* 
                 <div className="slideshow">

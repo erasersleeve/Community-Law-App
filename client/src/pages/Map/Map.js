@@ -6,6 +6,8 @@ import { Button, Modal } from 'react-bootstrap';
 import Form from "../../components/Form";
 import MapContainer from "./MapContainer";
 import GoogleHeatMap from "../../components/GoogleHeatMap";
+import API from "../../utils/API";
+import { response } from "express";
 // import MapsModal from "../../components/Modul";
 
 
@@ -33,19 +35,20 @@ function Map() {
             lng: latLng.lng,
             date: new Date,
         }
+        // Ajax call
+        console.log("THIS IS DATA :)")
 console.log(data)
 
-        fetch("/api/posts", {
-            method: "POST",
-            body: data
-        });
+        // API.savePost(data).then(response => {
+        //     console.log(response)
+        // });
     };
 
     return (
         <Container fluid>
             <Navbar />
-            <GoogleHeatMap />
             <Button onClick={() => setShow(true)}>Submit Incident</Button>
+            <GoogleHeatMap />
             <Modal
                 size="lg"
                 show={lgShow}

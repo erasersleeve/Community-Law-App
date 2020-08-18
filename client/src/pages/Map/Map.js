@@ -6,8 +6,6 @@ import { Button, Modal } from 'react-bootstrap';
 import Form from "../../components/Form";
 import MapContainer from "./MapContainer";
 import GoogleHeatMap from "../../components/GoogleHeatMap";
-import API from "../../utils/API";
-import { response } from "express";
 // import MapsModal from "../../components/Modul";
 import API from "../../utils/API";
 function Map() {
@@ -17,6 +15,8 @@ function Map() {
     const getLatLng = (coordinates) => {
         setLatLng(coordinates.latLng.toJSON());
     };
+
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -27,13 +27,21 @@ function Map() {
             // file: form.get('file'),
             lat: latLng.lat,
             lng: latLng.lng,
-            date: new Date,
+            date: new Date
+        };
+
+        const body = {
+            data: data,
+            //update with real user id
+            id: 0
         }
         // Ajax call
         console.log("THIS IS DATA :)")
-        console.log(data);
-        API.savePost(data).then(response => {
-            console.log(response)
+        console.log(body);
+        API.savePost(body).then(response => {
+            console.log("Save Post", response)
+        }).catch(err => {
+            console.log(err)
         });
     };
     return (

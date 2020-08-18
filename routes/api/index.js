@@ -4,7 +4,7 @@ const postRoutes = require("./posts");
 const userRoutes = require("./user");
 
 //Routes
-// router.use("/posts", postRoutes);
+router.use("/posts", postRoutes);
 router.use("/user", userRoutes);
 
 // const postController = require("../../controllers/postsController.js")

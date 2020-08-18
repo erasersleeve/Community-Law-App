@@ -18,7 +18,7 @@ const userSeed = [
         lat: "",
         lng: "",
         description: "",
-        experience: Boolean,
+        experience: "",
         badgeNumber: "",
         file: "",
         date: new Date(Date.now())     

@@ -48,6 +48,7 @@ const LoginForm = () => {
     <div>
       <Container fluid>
         <NavBar />
+        <h1 className="headerText">Crime Watch Philadelphia <i class="fas fa-search-location"></i></h1>
         <Row className="align-items-center">
           <Col md={{ span: 6, offset: 1 }} className="LoginForm">
             <CarouselBanner />

@@ -2,20 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Button } from 'react-bootstrap';
 
 
 
-function Login() {
+function Map () {
 
     return (
-        <Container fluid>
+    <Container fluid>
 
-            <NavBar />
-
-            <Footer />
-        </Container>
+        <NavBar />
+        <Footer />
+    </Container>
     )
 }
 
-export default Login;
+export default Map;

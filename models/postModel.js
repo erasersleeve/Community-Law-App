@@ -1,3 +1,4 @@
+const Double = require('@mongoosejs/double');
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Double = require('@mongoosejs/double');

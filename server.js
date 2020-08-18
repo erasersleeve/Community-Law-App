@@ -47,10 +47,19 @@ app.use(bodyParser.json())
 app.use(passport.initialize());
 app.use(passport.session()); // calls seralizedUser and deserializedUser
 
-app.use( (req, res, next) => {
-  console.log('req.session', req.session);
-  return next();
-});
+// app.use( (req, res, next) => {
+//   console.log('req.session', req.session);
+//   return next();
+// });
+// app.use( (req, res, next) => {
+//   console.log("*********************", req.user);
+//   if (req.user){
+//     res.cookie("auth_user", "test")
+//     return next();
+//   } else {
+//     res.redirect("/")
+//   }
+// })
 
 
 // Serve up static assets (usually on heroku)

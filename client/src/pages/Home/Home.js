@@ -4,6 +4,7 @@ import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Card, Modal, Nav, Button, Form, InputGroup } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Redirect } from "react-router-dom";
 import "../../pages/Map/Map"
 import MapContainer from "./map";
 import API from "../../utils/API";
@@ -73,46 +74,29 @@ const Styles = styled.div`
 
 `
 
-// const schema = object({
-//     address: string().required(),
-//     description: string().required(),
-//     experience: string().required(),
-//     file: string().required(),
+export default function Home (props) {
+    // const [redirect, setRedirect] = useState(false)
+    useEffect(() => {
+        if (props.loggedIn == false){
+            props.setRedirect(true)
+        }
+    }, [])
 
-// })
-
-
-
-
-export default function Home () {
+    // const renderRedirect= () => {
+    //     if (redirect == true){
+    //         return <Redirect to="/"/>
+    //     }
+    // }
     const [show, setShow] = useState(false);
     const [lgShow, setLgShow] = useState(false);
 
     const handleClose = () => setLgShow(false);
 
-    // const [post, setPosts] = useState({
-    //     results: [],
-    // });
-    // const [formObject, setFormObject] = useState({});
-    // useEffect(() => {
-    //     loadPosts();
-    // }, []);
-
-    // function loadPosts() {
-    //     API.get()
-    //     .then((res) => setPosts(res.data))
-    //     .catch((err) => console.log(err));
-    // }
-
-
     return (
     <Styles className="body">
-
-
-
-
+    {props.renderRedirect()}
     <Container fluid>
-        <NavBar />
+        <NavBar handleLogout={props.handleLogout}/>
         <Button onClick={() => setShow(true)}>Submit Incident</Button>
         <Modal
             size="lg"
@@ -332,24 +316,3 @@ export default function Home () {
     )
 }
 
-
-// custom-modal.custom-dialog {width:80% !important; top:20%;}
-// #media (min-width: 992px)
-// .my-modal-lg {
-// width: auto;
-// }
-// #media (min-width: 768px)
-// .my-modal-dialog {
-// width: 100%;
-// height: 100%;
-// margin: 0;
-// padding: 0;
-// }
-// #media (min-width: 768px)
-// .my-modal-content {
-// box-shadow: 0 5px 15px rgba(0,0,0,.5);
-// height: auto;
-// min-height: 100%;
-// border-radius: 0;
-
-// aria-labelledby="example-modal-sizes-title-lg"

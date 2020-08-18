@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -41,7 +41,7 @@ const Styles = styled.div`
 
 
 
-export default function Home () {
+
 export default function Home (props) {
     // const [redirect, setRedirect] = useState(false)
     useEffect(() => {
@@ -78,5 +78,4 @@ export default function Home (props) {
     </Container>
     </Styles>
     )
-}
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import MapContainer from "./MapContainer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Button, Modal } from 'react-bootstrap';
@@ -34,7 +33,7 @@ function Map(props) {
         const body = {
             data: data,
             //update with real user id
-            id: 0
+            id: props.userId
         }
         // Ajax call
         console.log("THIS IS DATA :)")

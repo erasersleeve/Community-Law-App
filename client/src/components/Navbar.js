@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Navbar, Nav, Jumbotron, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 // import "./Navbar.css";
-import Image from "../image/nature.jpeg";
+import Image from "../image/panoramicImg.jpeg";
 
 
 
@@ -13,7 +13,6 @@ const Styles = styled.div`
     .navbar {
         display: flex;
         background-color: transparent;
-        background: none;
         color: white;
         margin-bottom: 20px;
         width: 100%;
@@ -39,16 +38,41 @@ const Styles = styled.div`
 
     .nav {
         width: 110%;
-        background: none;
     }
+
+    .container {
+        width: 500px;
+
+    }
+
+    .jumbotron {
+        // background-color: #92140cff;
+
+        position: relative;
+        margin-top: 100px;
+        // width: 500px;
+        // margin-left: 5%;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 400px;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .test {
+        margin-top: -100px;
+    }
+
 `
 const backgroundStyle = {
     backgroundImage: `url(${Image})`
 }
 
-const backgroundColor = {
-    backgroundColor: "#fff8f0ff"
-}
+// const backgroundColor = {
+//     backgroundColor: "#fff8f0ff"
+// }
 
 function NavBar() {
     const location = useLocation();
@@ -57,11 +81,11 @@ function NavBar() {
         <header>
             <>
             <Styles>
-            <Container style={backgroundStyle} className="imgDiv">
-                <Jumbotron>
-
+            <div className="test">
+                <Jumbotron style={backgroundStyle}>
+                {/* <img src={Image}> */}
             
-                    <div className="nav">
+                    {/* <div className="nav"> */}
                         <Navbar expand="md">
                             <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -75,9 +99,10 @@ function NavBar() {
                                 </Nav>
                             </Navbar.Collapse>
                         </Navbar>
-                    </div>
+                    {/* </img> */}
+                    {/* </div> */}
                 </Jumbotron>
-            </Container>
+            </div>
             </Styles>
             </>
 

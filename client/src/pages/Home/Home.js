@@ -83,6 +83,10 @@ const Styles = styled.div`
             padding-bottom: 0;
             // height: 100px;
         }
+
+    html {
+        margin top: -50px;
+    }
 `
 
  const backgroundStyle = {

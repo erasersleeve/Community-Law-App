@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import React, {  useState } from "react";
+import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Button } from 'react-bootstrap';
+import { Card, Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from "../../image/panoramicImg.jpeg";
 import { Redirect } from "react-router-dom";
 
 
@@ -50,7 +51,6 @@ function Resources(props) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     return (
         <Styles>

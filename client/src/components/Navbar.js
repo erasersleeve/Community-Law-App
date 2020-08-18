@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Navbar, Nav, Jumbotron, Carousel } from 'react-bootstrap';
+import { useLocation } from "react-router-dom";
+import { Navbar, Nav, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Redirect } from "react-router-dom";
 import axios from "axios";
@@ -15,40 +15,59 @@ import Image from "../image/kelly-kiernan.jpeg";
 
 const Styles = styled.div`
     .navbar {
-        background-color: #111d4aff;
-        color: white;
+        display: flex;
+        background-color: transparent;
         margin-bottom: 20px;
         width: 100%;
-        // margin-left: -30px;
-        // margin-right: -10px;
+        font-family: Andale Mono;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #fff8f0ff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 125%;
+    }
+
+    .navbar-brand {
+        color: #ffcf99ff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 200%;
+    }   
+
+    .title {
+        padding: 5px;
+        font-family: Frutiger;
+
+    }
+
+    .links {
+        margin-right: -50%;
     }
 
     .jumbotron {
         position: relative;
-        width: 80%;
-        margin-left: 10%;
-        padding-top: 0;
-        padding-bottom: 0;
-        // height: 100px;
+        // margin-top: 100px;
+        // padding-top: 0;
+        // padding-bottom: 0;
+        // width: 100%;
+        height: 550px;
+        // max-height: 625px;
+        // min height: 100px;
     }
 
-    .navbar-light .navbar-nav .nav-link {
-        color: #B8B8B8;
+    .header {
+        width: 100%;
     }
 
-    .navbar-light .navbar-brand {
-        color: white;
-    }
+    // .test {
+    //     margin-top: -100px;
+    //     width: 100%;
+    // }
 
-    .slideshow {
-        position: relative;
-        width: 50%;
-        margin-left: 25%;
-    }
-    
 `
 const backgroundStyle = {
-    "backgroundImage": Image
+    backgroundImage: `url(${Image})`,
+    backgroundSize: "cover"
 }
 
 function NavBar(props) {
@@ -73,85 +92,26 @@ function NavBar(props) {
         <header>
             <>
             <Styles>
-
-                <Navbar expand="md">
-                    <Navbar.Brand href="/home">Navbar</Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/login" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Sign Up/Login</Nav.Link>
-                        <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
-                        <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
-                        <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
-                        <Nav.Link onClick={props.handleLogout} className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Log Out</Nav.Link>
-                    </Nav>
-                </Navbar>
-{/* 
-                <div className="slideshow">
- 
-                    </div> */}
-  
-                    <Jumbotron>
-                    <Carousel className="slideshow">
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title&bg=373940"
-                            alt="First slide"
-                            />
-                            <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title 2&bg=373940"
-                            alt="Second slide"
-                            />
-
-                            <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title 3&bg=373940"
-                            alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-
-                        </Carousel>
-                    </Jumbotron>
-
-
+            <div className="test">
+                <Jumbotron fluid style={backgroundStyle}>
+                    <Navbar expand="md">
+                        <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                        <Navbar.Collapse id="links basic-navbar-nav float-right">
+                            <Nav className="mr-auto justify-content-end">
+                                <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
+                                <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
+                                <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
+                                <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
+                                <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </Jumbotron>
+            </div>
             </Styles>
             </>
 
-
-
-
-            {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand nav-link rounded" href="index.html">Tim Winters</a>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent"></div>
-                <ul className="navbar-nav ml-auto">
-                    <li className="nav-item active">
-                        <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link to="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link to="/signout" className={location.pathname === "/signout" ? "nav-link active" : "nav-link"}>Sign Out</Link>
-                    </li>
-                </ul>
-        </nav> */}
         </header>
     )
 }

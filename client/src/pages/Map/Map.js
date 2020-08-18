@@ -6,8 +6,6 @@ import { Button, Modal } from 'react-bootstrap';
 import Form from "../../components/Form";
 import MapContainer from "./MapContainer";
 import GoogleHeatMap from "../../components/GoogleHeatMap";
-import API from "../../utils/API";
-import { response } from "express";
 // import MapsModal from "../../components/Modul";
 import API from "../../utils/API";
 function Map() {

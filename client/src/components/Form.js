@@ -4,14 +4,13 @@ import { Form, Button, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 
 const submissionForm = (props) => {
   const style = {
-    width: "100%",
-    height: "100px",
+    width: "auto",
+    height: "100%",
   }
   return (
+    <>
     <Form onSubmit={props.submit}>
-      <div style={style}>
-        <MapContainer clicked={props.clicked} positions={props.positions} />
-      </div>
+
       <FormGroup>
         <Label>Incident Description</Label>
         <Input type="description" name="description" placeholder="Description of Event (Required)"></Input>
@@ -32,6 +31,10 @@ const submissionForm = (props) => {
       </FormGroup>
       <Button>Submit</Button>
     </Form>
+    <div style={style}>
+      <MapContainer clicked={props.clicked} positions={props.positions} />
+    </div>
+    </>
   );
 }
 

@@ -32,13 +32,13 @@ function MapContainer(props) {
     return (
         <div>
             <Map
-                style={{ height: '100%', width: '100%', position: 'relative' }}
+                style={{ height: '300px', width: '300px', position: 'center' }}
                 className='map'
                 google={props.google}
                 zoom={14}
                 initialCenter={{
-                    lat: 25.761681,
-                    lng: -80.191788
+                    lat: 39.9526,
+                    lng: -75.1652
                 }}
             >
 

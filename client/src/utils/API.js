@@ -22,5 +22,10 @@ export default {
   getUsers: function() {
     return axios.get("/api/user");
   },
+
+savePost: function(postData) {
+  return axios.post("/api/posts", postData);
+
+}
  
 };

@@ -20,6 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@mongoosejs/double": "^0.2.0",
     "axios": "^0.18.0",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
@@ -30,10 +31,10 @@
     "google-maps-react": "^2.0.6",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.28",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-strap": "0.0.1",
-    "reactstrap": "^8.5.1",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "reactstrap": "^8.5.1"
   }
 }

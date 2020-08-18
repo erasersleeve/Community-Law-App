@@ -8,7 +8,7 @@ import axios from "axios";
 import "./NavBar.css";
 
 // import "./Navbar.css";
-import Image from "../image/kelly-kiernan.jpeg";
+import Image from "../image/nature.jpeg";
 
 
 
@@ -17,7 +17,7 @@ const Styles = styled.div`
     .navbar {
         display: flex;
         background-color: transparent;
-        margin-bottom: 20px;
+        margin-top: -45px;
         width: 100%;
         font-family: Andale Mono;
     }
@@ -59,10 +59,14 @@ const Styles = styled.div`
         width: 100%;
     }
 
-    // .test {
-    //     margin-top: -100px;
-    //     width: 100%;
-    // }
+    .test {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .header {
+        margin-top: 30px;
+    }
 
 `
 const backgroundStyle = {
@@ -93,7 +97,7 @@ function NavBar(props) {
             <>
             <Styles>
             <div className="test">
-                <Jumbotron fluid style={backgroundStyle}>
+                <Jumbotron fluid style={backgroundStyle} className="header">
                     <Navbar expand="md">
                         <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>

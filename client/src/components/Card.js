@@ -81,7 +81,7 @@ export default function RenderCard () {
             <div className="row">
                 <Card className="card cardInfo border-dark">
                 <Card.Body >
-                        <div className="row">
+                    <div className="row">
                         <div className="col-lg-12">
                             <Card.Header>
                             <Nav variant="tabs" defaultActiveKey="#first">
@@ -116,9 +116,9 @@ export default function RenderCard () {
                         <div className="row">
                         <div className="col-lg-8">
                         <Card.Title id="user"></Card.Title>
-                        <Card.Text onInvalidCapture="description"></Card.Text>
-                        <Card.Text onInvalidCapture="badge"></Card.Text>
-                        <Card.Text onInvalidCapture="experience"></Card.Text>
+                        <Card.Text id="description"></Card.Text>
+                        <Card.Text id="badge"></Card.Text>
+                        <Card.Text id="experience"></Card.Text>
                         </div>
                         <div className="col-lg-4 col-md-6">
                         <div className="imgTest">

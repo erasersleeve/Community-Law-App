@@ -38,6 +38,7 @@ function Map(props) {
         // Ajax call
         console.log("THIS IS DATA :)")
         console.log(body);
+        console.log(data);
         API.savePost(body).then(response => {
             console.log("Save Post", response)
         }).catch(err => {

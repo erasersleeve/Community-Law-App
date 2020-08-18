@@ -24,3 +24,8 @@
 .imageOpacity{
     opacity: .50;
 }
+
+.slideText{
+    font-family: "Andale Mono";
+    font-weight: bold;
+}

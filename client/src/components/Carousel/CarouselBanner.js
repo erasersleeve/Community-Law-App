@@ -22,8 +22,8 @@ function CarouselBanner() {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h1 className="textColor">Welcome to Crime Watch Philadelphia!</h1>
-                  <h4 className="textColor">
+                  <h1 className="textColor slideText">Welcome to CELP: Yelp for Cops!</h1>
+                  <h4 className="textColor slideText">
                     The one-stop application for tracking Philadelphia community crime.
                   </h4>
                 </Carousel.Caption>
@@ -36,8 +36,8 @@ function CarouselBanner() {
                 />
 
                 <Carousel.Caption>
-                  <h1>Community Connections</h1>
-                  <h4>
+                  <h1 className="slideText">Community Connections</h1>
+                  <h4 className="slideText">
                     View and communicate with other member's posts through the site.
                   </h4>
                 </Carousel.Caption>
@@ -52,8 +52,8 @@ function CarouselBanner() {
 
                 <Carousel.Caption>
                   {/* <Container className="imageText"> */}
-                  <h1 className="captionColor">Cases by Location</h1>
-                  <h4 className="captionColor">
+                  <h1 className="captionColor slideText">Cases by Location</h1>
+                  <h4 className="captionColor slideText">
                     Create and log location of interactions with law enforcement officers in real time!
                   </h4>
                   {/* </Container> */}

@@ -3,17 +3,28 @@
 }
 
 .LoginForm{
+    padding-top: 30px;
     margin-bottom: 100px;
 }
 
 .headerText{
     text-align: center;
     padding-bottom: 10px;
-    font-family: 'Fascinate', cursive;
+    /* font-family: 'Fascinate', cursive; */
+    font-family: "Andale Mono";
     font-size: 72px;
-    color: 
 }
 
-h2{
+.headerImage{
+    background-image: url("/image/philadelphiabackground.jpg");
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+.loginSideHeader{
     font-family: 'Fascinate', cursive;
+}
+
+.backgroundStyle{
+    width:500px;
 }

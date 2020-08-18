@@ -20,7 +20,10 @@ export default {
   },
   // Gets all users
   getUsers: function() {
-    return axios.get("/api/user");
+    return axios.get("/api/user/");
   },
- 
+ //Logout User
+ logOut: function(){
+   return axios.post("/api/user/logout")
+ }
 };

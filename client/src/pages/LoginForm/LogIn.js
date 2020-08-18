@@ -9,12 +9,20 @@ import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CarouselBanner from "../../components/Carousel/CarouselBanner";
 import SignUp from "../SignUp/SignUp";
+import image from "../../image/philadelphiabackground.jpg"
+import NavBarLogin from "./NavbarLogin";
+
+const backgroundStyle = {
+  backgroundImage: `url(${image}`,
+  backgroundSize: "cover",
+  width: "100%",
+}
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirectTo, setRedirectTo] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   const handleClick = (event) => {
     axios
@@ -38,7 +46,7 @@ const LoginForm = () => {
       .catch((error) => {
         console.log("Login Error: ");
         console.log(error);
-        setMessage("Invalid Email or Password")
+        setMessage("Invalid Email or Password");
       });
   };
 
@@ -46,16 +54,22 @@ const LoginForm = () => {
     <Redirect to={redirectTo} />
   ) : (
     <div>
+      <NavBarLogin />
+      <div className="backgroundStyle" style={backgroundStyle}>
+        <div>
+        <h1 className="headerText headerImage">
+          CELP : Yelp for Cops <i class="fas fa-search-location"></i>
+        </h1>
+        </div>
+      </div>
       <Container fluid>
-        <NavBar />
-        <h1 className="headerText">Crime Watch Philadelphia <i class="fas fa-search-location"></i></h1>
         <Row className="align-items-center">
           <Col md={{ span: 6, offset: 1 }} className="LoginForm">
             <CarouselBanner />
           </Col>
           <Col md={{ span: 3, offset: 1 }}>
-            <h2>Login Here</h2>
-            <h5 className="alert-danger">{message}</h5>
+            <h2 className="loginSideHeader">Login Here</h2>
+            <h6 className="alert-danger">{message}</h6>
             <Input
               type="text"
               name="email"
@@ -75,7 +89,7 @@ const LoginForm = () => {
             </FormBtn>
             <hr />
             {/* <div className="SignUp"> */}
-              <SignUp />
+            <SignUp />
             {/* </div> */}
           </Col>
         </Row>

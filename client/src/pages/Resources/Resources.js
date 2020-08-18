@@ -5,6 +5,8 @@ import Footer from "../../components/Footer";
 import { Card, Modal, Nav, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Redirect } from "react-router-dom";
+
 
 
 const Styles = styled.div`

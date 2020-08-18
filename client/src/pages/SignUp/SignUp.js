@@ -50,8 +50,8 @@ function SignUp() {
     // redirectTo ? <Redirect to={redirectTo}/> :
 
     <form className="SignUp">
-      <h2>Sign Up</h2>
-      <h5 className={message.includes("Invalid") ? "alert-danger" : "alert-success"}>{message}</h5>
+      <h2 className="loginSideHeader">Sign Up</h2>
+      <h6 className={message.includes("Invalid") ? "alert-danger" : "alert-success"}>{message}</h6>
       <Input
         onChange={handleInputChange}
         name="name"

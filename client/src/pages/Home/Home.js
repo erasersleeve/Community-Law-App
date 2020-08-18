@@ -4,6 +4,7 @@ import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Card, Modal, Nav, Button } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Redirect } from "react-router-dom";
 // import "../../style.css"
 
 
@@ -48,10 +49,23 @@ const Styles = styled.div`
     }
 `
 
-function Home () {
+function Home (props) {
+    const [redirect, setRedirect] = useState(false)
+    useEffect(() => {
+        if (props.loggedIn == false){
+            setRedirect(true)
+        }
+    }, [])
+
+    const renderRedirect= () => {
+        if (redirect == true){
+            return <Redirect to="/"/>
+        }
+    }
 
     return (
     <Styles className="body">
+    {renderRedirect()}
     <Container fluid>
         <NavBar />
         <h2>Public Feed</h2>

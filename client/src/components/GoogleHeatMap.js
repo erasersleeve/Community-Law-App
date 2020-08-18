@@ -1,14 +1,12 @@
 import React from 'react';
 import { Map, HeatMap, GoogleApiWrapper } from 'google-maps-react';
 import "./GoogleHeatMap.css";
-
 const mapStyles = {
     // position: 'relative',
     display: 'block',
     width: '100%',
     height: '100%'
 };
-
 function MapContainer(props) {
     const positions = [
         { lat: 25.782551, lng: -80.445368 },
@@ -28,20 +26,18 @@ function MapContainer(props) {
         { lat: 25.783842, lng: -80.439591 },
         { lat: 25.784147, lng: -80.439668 }
     ];
-
     return (
         <div>
             <Map
-                style={{ height: '100%', width: '100%', position: 'relative' }}
+                style={{ height: '300px', width: '300px', position: 'center' }}
                 className='map'
                 google={props.google}
                 zoom={14}
                 initialCenter={{
-                    lat: 25.761681,
-                    lng: -80.191788
+                    lat: 39.9526,
+                    lng: -75.1652
                 }}
             >
-
                 <HeatMap
                     opacity={.5}
                     positions={positions}
@@ -51,7 +47,6 @@ function MapContainer(props) {
         </div>
     );
 }
-
 export default GoogleApiWrapper({
     // Maps API key
     apiKey: process.env.REACT_APP_MAPS_API,

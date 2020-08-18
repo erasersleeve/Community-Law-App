@@ -2,12 +2,13 @@ import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
+  // position: 'relative',
+  display: 'block',
   width: '100%',
   height: '100%'
 };
 
 function MapContainer(props) {
-  console.log("MapContainer:", props.positions);
   return (
     <Map
       google={props.google}
@@ -27,5 +28,5 @@ function MapContainer(props) {
 
 export default GoogleApiWrapper({
   // Maps API key
-  apiKey: process.env.REACT_APP_MAPS_API
+  apiKey: process.env.REACT_APP_MAPS_API,
 })(MapContainer);

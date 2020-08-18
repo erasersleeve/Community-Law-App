@@ -21,11 +21,11 @@ function Map(props) {
   //   }
   // };
 
-  useEffect(() => {
-    if (props.loggedIn == false){
-        props.setRedirect("/")
-    }
-}, [])
+//   useEffect(() => {
+//     if (props.loggedIn == false){
+//         props.setRedirect("/")
+//     }
+// }, [])
 
   const [latLng, setLatLng] = useState({ lat: 39.9526, lng: -75.1652 });
 

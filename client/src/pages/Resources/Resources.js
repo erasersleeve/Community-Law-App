@@ -41,11 +41,11 @@ function Resources(props) {
 //       return <Redirect to="/" />;
 //     }
 //   };
-    useEffect(() => {
-    if (props.loggedIn == false){
-        props.setRedirect("/")
-    }
-}, [])
+//     useEffect(() => {
+//     if (props.loggedIn == false){
+//         props.setRedirect("/")
+//     }
+// }, [])
 
     const [show, setShow] = useState(false);
 

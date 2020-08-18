@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export default {
   //get all posts
   getPosts: function() {
@@ -25,5 +24,8 @@ export default {
  //Logout User
  logOut: function(){
    return axios.post("/api/user/logout")
- }
+ },
+  savePost: function(postData) {
+    return axios.post("/api/posts", postData);
+  }
 };

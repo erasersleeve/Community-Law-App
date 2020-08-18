@@ -5,10 +5,13 @@ import Footer from "../../components/Footer";
 import { Card, Modal, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Redirect } from "react-router-dom";
+import { List, ListItem } from "../../components/List";
+
 import "../../pages/Map/Map"
 import MapContainer from "./map";
 import Image2 from "../../image/kelly-kiernan.jpeg";
 import RenderCard from "../../components/Card";
+import API from "../../utils/API";
 
 const mapStyles = {
     width: '100%',
@@ -61,6 +64,26 @@ export default function Home (props) {
     const handleClose = () => setLgShow(false);
 
 
+    const [posts, setPosts] = useState({
+        results: []
+    })
+
+
+    useEffect(() => {
+        loadPosts()
+    }, [])
+
+    function loadPosts() {
+        API.getPosts()
+            .then(res => setPosts(res.data))
+            .then(console.log("posts", posts))
+            .catch(err => console.log(err));
+    };
+
+
+
+
+
     return (
     <Styles style={backgroundStyle}>
 
@@ -70,8 +93,43 @@ export default function Home (props) {
     <Container fluid className="test">
 
         <NavBar />
-        <RenderCard />
-  
+        
+        {posts.length ? (
+                <List>
+                    {posts.map(post => {
+                    
+                        return (
+                            <>
+                            <Card key={post._id}>
+                                
+                                    <strong>ss
+                                    {post.description}
+                                    </strong>
+                                    <strong>
+                                    {post.lng}
+                                    </strong>
+                                    <strong>
+                                    {post.lat}
+                                    </strong>
+                                    <strong>
+                                    {post.badge}
+                                    </strong>
+                                    <strong>
+                                    {post.day}
+                                    </strong>
+                            </Card>
+                            
+                    </>
+                        );
+                    })}
+                </List>
+                 ) : (
+                    <div>
+                          <h3>No Results to Display</h3>
+                    </div>
+                      
+    
+                )}
 
 
         <Footer />

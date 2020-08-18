@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Jumbotron } from 'react-bootstrap';
+import { Card, Modal, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
-import "../../pages/Map/Map"
+import "../../pages/Map/Map";
 import MapContainer from "./map";
-// import API from "../../utils/API";
-
-import Image from "../../image/nature.jpeg";
 import Image2 from "../../image/kelly-kiernan.jpeg";
-
-
-// import "../../style.css"
+import RenderCard from "../../components/Card";
 
 const mapStyles = {
     width: '100%',
@@ -20,54 +15,6 @@ const mapStyles = {
 };
 
 const Styles = styled.div`
-    .cardInfo {
-        width: 90%;
-        height: auto;
-        background-color: #fff8f0ff;
-        margin: 50px;
-        color: #111d4aff;
-        margin-left: 5%;
-
-    }
-
-    .cardImg {
-        // width: 20%;
-        min-width: 273px !important;
-        height: auto;
-        // margin: 50px;
-        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-        cursor: pointer;
-    }
-
-    .card:hover{
-        transform: scale(1.02);
-        box-shadow: 0 10px 20px rgba(0,0,0,.5), 0 4px 8px rgba(0,0,0,.06);
-        opacity: 2.0;
-    }
-
-    .card-header {
-        background: linear-gradient(to top left, #C0C0C0 -5%, #ffcf99ff 75%, #92140cff 100%);        border-radius: 10px !important;
-    }
-
-    .card {
-        border-radius: 40px !important;
-        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.05);
-    }
-
-    img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px !important;
-
-    }
-
-    // .homeMap {
-    //     height: 50px !important;
-    // }
-
-    .container {
-        width: 900px;
-    }
 
     .background {
         width: 100%;
@@ -77,20 +24,18 @@ const Styles = styled.div`
     .jumbotron {
             position: relative;
             margin-top: 100px;
-            width: 100%;
-            // margin-left: 5%;
             padding-top: 0;
             padding-bottom: 0;
-            // height: 100px;
         }
 
-    html {
-        margin top: -50px;
+    .test {
+        margin-top: -100px;
+        width: 100%;
     }
 `
 
  const backgroundStyle = {
-        "backgroundColor": "#DCDCDC"
+        "backgroundColor": "#F5F5F5"
     }
 
 
@@ -108,12 +53,10 @@ export default function Home () {
 
 
 
-    <Container fluid>
+    <Container fluid className="test">
 
-        {/* <Jumbotron>
-            <img src={Image}></img>
-        </Jumbotron> */}
         <NavBar />
+        <RenderCard />
         {/* <Button onClick={() => setShow(true)}>Submit Incident</Button>
         <Modal
             size="lg"
@@ -177,8 +120,8 @@ export default function Home () {
         </Form>
         </Modal.Body>
         </Modal> */}
-        <div className="row">
-            <Card className="card cardInfo border-dark rounded">
+        {/* <div className="row">
+            <Card className="card cardInfo border-dark">
 
                 <Card.Body >
                     <div className="row">
@@ -199,17 +142,12 @@ export default function Home () {
                             onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
                             aria-labelledby="example-custom-modal-styling-title"        
                         >
-                            {/* <Modal.Header closeButton> */}
-                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
-                            {/* </Modal.Header>  */}
-                            {/* <Modal.Body> */}
                                 <Container className="homeMap">
                                     <MapContainer 
                                         closeButton
                                         style={mapStyles}
                                     />
                                 </Container>
-                            {/* </Modal.Body> */}
                         </Modal>
 
                     </Nav.Item>
@@ -228,9 +166,6 @@ export default function Home () {
                     </Card.Text>
                     <Card.Text>
                     Description: 
-                    </Card.Text>
-                    <Card.Text>
-                    Image:
                     </Card.Text>
                     <Card.Text>
                     Experience:
@@ -271,17 +206,13 @@ export default function Home () {
                             onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
                             aria-labelledby="example-custom-modal-styling-title"        
                         >
-                            {/* <Modal.Header closeButton> */}
-                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
-                            {/* </Modal.Header>  */}
-                            {/* <Modal.Body> */}
+    
                                 <Container className="homeMap">
                                     <MapContainer 
                                         closeButton
                                         style={mapStyles}
                                     />
                                 </Container>
-                            {/* </Modal.Body> */}
                         </Modal>
 
                     </Nav.Item>
@@ -300,9 +231,6 @@ export default function Home () {
                     </Card.Text>
                     <Card.Text>
                     Description: 
-                    </Card.Text>
-                    <Card.Text>
-                    Image:
                     </Card.Text>
                     <Card.Text>
                     Experience:
@@ -341,17 +269,13 @@ export default function Home () {
                             onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
                             aria-labelledby="example-custom-modal-styling-title"        
                         >
-                            {/* <Modal.Header closeButton> */}
-                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
-                            {/* </Modal.Header>  */}
-                            {/* <Modal.Body> */}
+
                                 <Container className="homeMap">
                                     <MapContainer 
                                         closeButton
                                         style={mapStyles}
                                     />
                                 </Container>
-                            {/* </Modal.Body> */}
                         </Modal>
 
                     </Nav.Item>
@@ -372,9 +296,6 @@ export default function Home () {
                     Description: 
                     </Card.Text>
                     <Card.Text>
-                    Image:
-                    </Card.Text>
-                    <Card.Text>
                     Experience:
                     </Card.Text>
                     </div>
@@ -391,7 +312,7 @@ export default function Home () {
             </div>
         <br />
         <br />
-        <br />
+        <br /> */}
 
 
         <Footer />
@@ -399,25 +320,3 @@ export default function Home () {
     </Styles>
     )
 }
-
-
-// custom-modal.custom-dialog {width:80% !important; top:20%;}
-// #media (min-width: 992px)
-// .my-modal-lg {
-// width: auto;
-// }
-// #media (min-width: 768px)
-// .my-modal-dialog {
-// width: 100%;
-// height: 100%;
-// margin: 0;
-// padding: 0;
-// }
-// #media (min-width: 768px)
-// .my-modal-content {
-// box-shadow: 0 5px 15px rgba(0,0,0,.5);
-// height: auto;
-// min-height: 100%;
-// border-radius: 0;
-
-// aria-labelledby="example-modal-sizes-title-lg"

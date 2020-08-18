@@ -2,8 +2,7 @@ import React, {  useState } from "react";
 import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-// import JumboTron from "../../components/Jumbotron";
-import { Card, Button, Jumbotron } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from "../../image/panoramicImg.jpeg";
@@ -52,17 +51,12 @@ function Resources() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     return (
         <Styles>
         <Container fluid>
 
             <NavBar />
-            <Jumbotron>
-            <img className="background" src={Image}></img>
-
-            </Jumbotron>
             <Card className="card cardInfo border-dark rounded">
                 <Card.Header className="header">
                     <h2>Article Name</h2>
@@ -75,28 +69,6 @@ function Resources() {
                     <Button href="https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/" target="_blank" variant="primary" onClick={() => setShow(true)}>
                         Full Article
                     </Button>
-                    {/* <Modal
-                        className="myModal"
-                        size="lg"
-                        show={show}
-                        onHide={() => setShow(false)}
-                        dialogClassName="modal-90w"
-                    
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title >
-                            Article
-                            </Modal.Title>
-                        </Modal.Header>
-                        <Container>
-                            
-                        </Container>
-            <Modal.Body className="test">
-                <a href="https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/"></a>
-
-            </Modal.Body>
-
-        </Modal> */}
 
                 </Card.Body>
             </Card>
@@ -107,17 +79,3 @@ function Resources() {
 }
 
 export default Resources;
-
-{/* <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="full-article">
-<Modal.Header closeButton>
-    <Modal.Title id="full-article">Modal heading</Modal.Title>
-</Modal.Header>
-<Modal.Body>
-    <p>Lorem ipsum dolor sit amet, nam nihil erroribus id, et pro aeterno veritus dolorem. Sit ad possit pertinax, populo possim lucilius id per. Omnis simul probatus eam ea, vim stet labitur sanctus cu. Vix ei molestiae necessitatibus. Ea vitae tractatos signiferumque usu, zril blandit efficiendi ex duo.</p>
-</Modal.Body>
-<Modal.Footer>
-<Button variant="secondary" onClick={handleClose}>
-    Close
-</Button>
-</Modal.Footer>
-</Modal> */}

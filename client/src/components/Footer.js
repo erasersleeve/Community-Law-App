@@ -47,15 +47,6 @@ function Footer() {
                 </Dropdown>
                 </div>
             </footer>
-            {/* <footer className="footer">
-                <div className="container">
-                    <a href="https://github.com/ccraig7321" className="text-light p-4 ">Chelsey Craig's Github</a>
-                    <a href="https://github.com/AndrewbHall96" className="text-light p-4 ">Andrew Hall's Github</a>
-                    <a href="https://github.com/Jchomer90" className="text-light p-4 ">Josh Homer's Github</a>
-                    <a href="https://github.com/Turtando" className="text-light p-4 ">Chris Turton's Github</a>
-                    <a href="https://github.com/erasersleeve" className="text-light p-4 ">Tim Winters's Github</a>
-                </div>
-            </footer> */}
         </Styles>
         </>
     )

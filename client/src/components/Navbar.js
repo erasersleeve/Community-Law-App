@@ -1,10 +1,9 @@
 
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Navbar, Nav, Jumbotron, Container } from 'react-bootstrap';
+import { Navbar, Nav, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
-// import "./Navbar.css";
-import Image from "../image/panoramicImg.jpeg";
+import Image from "../image/nature.jpeg";
 
 
 
@@ -13,66 +12,58 @@ const Styles = styled.div`
     .navbar {
         display: flex;
         background-color: transparent;
-        color: white;
         margin-bottom: 20px;
         width: 100%;
-        // font-family: Mentone;
-        margin-left: -30px;
+        font-family: Andale Mono;
     }
 
     .navbar-light .navbar-nav .nav-link {
-        color: #B8B8B8;
+        color: #fff8f0ff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 125%;
     }
 
-    .navbar-light .navbar-brand {
-        color: white;
+    .navbar-brand {
+        color: #ffcf99ff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 200%;
     }   
 
     .title {
         padding: 5px;
+        font-family: Frutiger;
+
     }
 
     .links {
         margin-right: -50%;
     }
 
-    .nav {
-        width: 110%;
-    }
-
-    .container {
-        width: 500px;
-
-    }
-
     .jumbotron {
-        // background-color: #92140cff;
-
         position: relative;
-        margin-top: 100px;
-        // width: 500px;
-        // margin-left: 5%;
-        padding-top: 0;
-        padding-bottom: 0;
-        height: 400px;
+        // margin-top: 100px;
+        // padding-top: 0;
+        // padding-bottom: 0;
+        // width: 100%;
+        height: 550px;
+        // max-height: 625px;
+        // min height: 100px;
     }
 
     .header {
         width: 100%;
     }
 
-    .test {
-        margin-top: -100px;
-    }
+    // .test {
+    //     margin-top: -100px;
+    //     width: 100%;
+    // }
 
 `
 const backgroundStyle = {
-    backgroundImage: `url(${Image})`
+    backgroundImage: `url(${Image})`,
+    backgroundSize: "cover"
 }
-
-// const backgroundColor = {
-//     backgroundColor: "#fff8f0ff"
-// }
 
 function NavBar() {
     const location = useLocation();
@@ -82,25 +73,20 @@ function NavBar() {
             <>
             <Styles>
             <div className="test">
-                <Jumbotron style={backgroundStyle}>
-                {/* <img src={Image}> */}
-            
-                    {/* <div className="nav"> */}
-                        <Navbar expand="md">
-                            <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                            <Navbar.Collapse id="links basic-navbar-nav float-right">
-                                <Nav className="mr-auto justify-content-end">
-                                    <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
-                                    <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
-                                    <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
-                                    <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
-                                    <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
-                                </Nav>
-                            </Navbar.Collapse>
-                        </Navbar>
-                    {/* </img> */}
-                    {/* </div> */}
+                <Jumbotron fluid style={backgroundStyle}>
+                    <Navbar expand="md">
+                        <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                        <Navbar.Collapse id="links basic-navbar-nav float-right">
+                            <Nav className="mr-auto justify-content-end">
+                                <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
+                                <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
+                                <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
+                                <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
+                                <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
                 </Jumbotron>
             </div>
             </Styles>

@@ -9,13 +9,17 @@ const Styles = styled.div `
         margin-left: -5%;
         margin-right: -5%;
         margin-top: 30px;
-        background-color: #111d4aff;
+        background-color: #92140cff;
         border: 2px #C0C0C0;
         bottom: 0;
         height: 40px;
         line-height: 40px;
         width: 110%;
 
+    }
+
+    .container {
+        margin-left: 10%;
     }
 `
 
@@ -29,7 +33,7 @@ function Footer() {
             <footer className="footer">
                 <div className="container">
                 <Dropdown className="dropup">
-                    <Dropdown.Toggle className="dropup" variant="secondary" id="dropdown-button-drop-up">
+                    <Dropdown.Toggle className="dropup" variant="outline-dark" id="dropdown-drop-up">
                         Contributors
                     </Dropdown.Toggle>
 

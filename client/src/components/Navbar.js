@@ -1,31 +1,24 @@
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Navbar, Nav, Jumbotron, Carousel } from 'react-bootstrap';
+import { useLocation } from "react-router-dom";
+import { Navbar, Nav, Jumbotron, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 // import "./Navbar.css";
-import Image from "../image/kelly-kiernan.jpeg";
+import Image from "../image/nature.jpeg";
 
 
 
 
 const Styles = styled.div`
     .navbar {
-        background-color: #111d4aff;
+        display: flex;
+        background-color: transparent;
+        background: none;
         color: white;
         margin-bottom: 20px;
         width: 100%;
-        // margin-left: -30px;
-        // margin-right: -10px;
-    }
-
-    .jumbotron {
-        position: relative;
-        width: 80%;
-        margin-left: 10%;
-        padding-top: 0;
-        padding-bottom: 0;
-        // height: 100px;
+        // font-family: Mentone;
+        margin-left: -30px;
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -34,17 +27,27 @@ const Styles = styled.div`
 
     .navbar-light .navbar-brand {
         color: white;
+    }   
+
+    .title {
+        padding: 5px;
     }
 
-    .slideshow {
-        position: relative;
-        width: 50%;
-        margin-left: 25%;
+    .links {
+        margin-right: -50%;
     }
-    
+
+    .nav {
+        width: 110%;
+        background: none;
+    }
 `
 const backgroundStyle = {
-    "backgroundImage": Image
+    backgroundImage: `url(${Image})`
+}
+
+const backgroundColor = {
+    backgroundColor: "#fff8f0ff"
 }
 
 function NavBar() {
@@ -54,88 +57,30 @@ function NavBar() {
         <header>
             <>
             <Styles>
+            <Container style={backgroundStyle} className="imgDiv">
+                <Jumbotron>
 
-                <Navbar expand="md">
-                    <Navbar.Brand href="/home">Navbar</Navbar.Brand>
-                    <Navbar.Toggle className="navbar-light" aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="navbar-light" id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
-                            <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
-                            <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
-                            <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
-                            <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-{/* 
-                <div className="slideshow">
- 
-                    </div> */}
-  
-                    <Jumbotron>
-                    <Carousel className="slideshow">
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title&bg=373940"
-                            alt="First slide"
-                            />
-                            <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title 2&bg=373940"
-                            alt="Second slide"
-                            />
-
-                            <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://via.placeholder.com/150?text=Custom Title 3&bg=373940"
-                            alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-
-                        </Carousel>
-                    </Jumbotron>
-
-
+            
+                    <div className="nav">
+                        <Navbar expand="md">
+                            <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
+                            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                            <Navbar.Collapse id="links basic-navbar-nav float-right">
+                                <Nav className="mr-auto justify-content-end">
+                                    <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
+                                    <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
+                                    <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
+                                    <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
+                                    <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                                </Nav>
+                            </Navbar.Collapse>
+                        </Navbar>
+                    </div>
+                </Jumbotron>
+            </Container>
             </Styles>
             </>
 
-
-
-
-            {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand nav-link rounded" href="index.html">Tim Winters</a>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent"></div>
-                <ul className="navbar-nav ml-auto">
-                    <li className="nav-item active">
-                        <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link to="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link to="/signout" className={location.pathname === "/signout" ? "nav-link active" : "nav-link"}>Sign Out</Link>
-                    </li>
-                </ul>
-        </nav> */}
         </header>
     )
 }

@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import React, {  useState } from "react";
+import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Button } from 'react-bootstrap';
+// import JumboTron from "../../components/Jumbotron";
+import { Card, Button, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from "../../image/panoramicImg.jpeg";
+
 
 
 const Styles = styled.div`
@@ -25,6 +28,20 @@ const Styles = styled.div`
     #example-modal-sizes-title-lg2 {
         width: 90% !important;
     }
+
+    .jumbotron {
+            position: relative;
+            width: 100%;
+            // margin-left: 5%;
+            padding-top: 0;
+            padding-bottom: 0;
+            // height: 100px;
+        }
+
+    .background {
+        width: 100%;
+        max-height: 530px;
+    }
 `
 const article = "https://whyy.org/articles/gun-violence-hearings-leave-philly-councilmembers-residents-disheartened-and-tired/";
 
@@ -42,6 +59,10 @@ function Resources() {
         <Container fluid>
 
             <NavBar />
+            <Jumbotron>
+            <img className="background" src={Image}></img>
+
+            </Jumbotron>
             <Card className="card cardInfo border-dark rounded">
                 <Card.Header className="header">
                     <h2>Article Name</h2>

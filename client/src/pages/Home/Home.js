@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import React, { useState } from "react";
+import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Button, Form, InputGroup } from 'react-bootstrap';
+import { Card, Modal, Nav, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
 import "../../pages/Map/Map"
 import MapContainer from "./map";
-import API from "../../utils/API";
+// import API from "../../utils/API";
+
+import Image from "../../image/nature.jpeg";
+import Image2 from "../../image/kelly-kiernan.jpeg";
+
 
 // import "../../style.css"
 
@@ -17,21 +21,20 @@ const mapStyles = {
 
 const Styles = styled.div`
     .cardInfo {
-        width: 60%;
-        min-width: 294px !important;
+        width: 90%;
         height: auto;
         background-color: #fff8f0ff;
         margin: 50px;
         color: #111d4aff;
-        border-radius: 4px;
-        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        margin-left: 5%;
+
     }
 
     .cardImg {
-        width: 20%;
+        // width: 20%;
         min-width: 273px !important;
         height: auto;
-        margin: 50px;
+        // margin: 50px;
         box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
         cursor: pointer;
     }
@@ -43,44 +46,48 @@ const Styles = styled.div`
     }
 
     .card-header {
-        background-color: #ffcf99ff;
+        background: linear-gradient(to top left, #C0C0C0 -5%, #ffcf99ff 75%, #92140cff 100%);        border-radius: 10px !important;
     }
 
-    .imgDiv {
-        float: right;
+    .card {
+        border-radius: 40px !important;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.05);
     }
-    
+
     img {
         width: 100%;
         height: auto;
-    }
-
-    .custom-modal {
+        border-radius: 10px !important;
 
     }
 
-    .homeMap {
-        height: 600px !important;
-    }
+    // .homeMap {
+    //     height: 50px !important;
+    // }
 
     .container {
         width: 900px;
     }
 
-    .row {
-        // width: 110% !important;
+    .background {
+        width: 100%;
+        max-height: 530px;
     }
 
+    .jumbotron {
+            position: relative;
+            margin-top: 100px;
+            width: 100%;
+            // margin-left: 5%;
+            padding-top: 0;
+            padding-bottom: 0;
+            // height: 100px;
+        }
 `
 
-// const schema = object({
-//     address: string().required(),
-//     description: string().required(),
-//     experience: string().required(),
-//     file: string().required(),
-
-// })
-
+ const backgroundStyle = {
+        "backgroundColor": "#DCDCDC"
+    }
 
 
 
@@ -90,30 +97,20 @@ export default function Home () {
 
     const handleClose = () => setLgShow(false);
 
-    // const [post, setPosts] = useState({
-    //     results: [],
-    // });
-    // const [formObject, setFormObject] = useState({});
-    // useEffect(() => {
-    //     loadPosts();
-    // }, []);
-
-    // function loadPosts() {
-    //     API.get()
-    //     .then((res) => setPosts(res.data))
-    //     .catch((err) => console.log(err));
-    // }
-
 
     return (
-    <Styles className="body">
+    <Styles style={backgroundStyle}>
 
 
 
 
     <Container fluid>
+
+        {/* <Jumbotron>
+            <img src={Image}></img>
+        </Jumbotron> */}
         <NavBar />
-        <Button onClick={() => setShow(true)}>Submit Incident</Button>
+        {/* <Button onClick={() => setShow(true)}>Submit Incident</Button>
         <Modal
             size="lg"
             show={show}
@@ -175,15 +172,19 @@ export default function Home () {
             <Button type="submit">Submit form</Button>
         </Form>
         </Modal.Body>
-        </Modal>
+        </Modal> */}
         <div className="row">
             <Card className="card cardInfo border-dark rounded">
-                <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item>
-                        <Nav.Link href="#first">Active</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
+
+                <Card.Body >
+                    <div className="row">
+                        <div className="col-lg-12">
+                        <Card.Header >
+                            <Nav variant="tabs" defaultActiveKey="#first">
+                            <Nav.Item>
+                                <Nav.Link href="#first">Incident Details</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
                         <Nav.Link variant="primary" onClick={() => setLgShow(true)}>
                         Map
                     </Nav.Link>
@@ -194,12 +195,13 @@ export default function Home () {
                             onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
                             aria-labelledby="example-custom-modal-styling-title"        
                         >
-                            {/* <Modal.Header closeButton>
-                                <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title>
-                            </Modal.Header> */}
+                            {/* <Modal.Header closeButton> */}
+                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
+                            {/* </Modal.Header>  */}
                             {/* <Modal.Body> */}
                                 <Container className="homeMap">
                                     <MapContainer 
+                                        closeButton
                                         style={mapStyles}
                                     />
                                 </Container>
@@ -207,9 +209,15 @@ export default function Home () {
                         </Modal>
 
                     </Nav.Item>
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
+                            </Nav>
+                        </Card.Header>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div className="row">
+                    <div className="col-lg-8">
                     <Card.Title>User: </Card.Title>
                     <Card.Text>
                     Location:
@@ -223,25 +231,65 @@ export default function Home () {
                     <Card.Text>
                     Experience:
                     </Card.Text>
+                    </div>
+                    
+                    <div className="col-lg-4 col-md-6">
+
+                    <div >
+                        <img src={Image2} alt="placeholder" />
+                    </div>
+                    </div>
+                    </div>
                 </Card.Body>
             </Card>
-            <Card className="cardImg">
-                <img src="#validationFormik107" alt="placeholder" />
-            </Card>
+
         </div>
+
         <div className="row">
             <Card className="card cardInfo border-dark rounded">
-                <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item>
-                        <Nav.Link href="#first">Active</Nav.Link>
+
+                <Card.Body >
+                    <div className="row">
+                        <div className="col-lg-12">
+                        <Card.Header >
+                            <Nav variant="tabs" defaultActiveKey="#first">
+                            <Nav.Item>
+                                <Nav.Link href="#first">Incident Details</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                        <Nav.Link variant="primary" onClick={() => setLgShow(true)}>
+                        Map
+                    </Nav.Link>
+
+                        <Modal
+                            size="lg"
+                            show={lgShow} 
+                            onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
+                            aria-labelledby="example-custom-modal-styling-title"        
+                        >
+                            {/* <Modal.Header closeButton> */}
+                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
+                            {/* </Modal.Header>  */}
+                            {/* <Modal.Body> */}
+                                <Container className="homeMap">
+                                    <MapContainer 
+                                        closeButton
+                                        style={mapStyles}
+                                    />
+                                </Container>
+                            {/* </Modal.Body> */}
+                        </Modal>
+
                     </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#link">Map</Nav.Link>
-                    </Nav.Item>
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
+                            </Nav>
+                        </Card.Header>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div className="row">
+                    <div className="col-lg-8">
                     <Card.Title>User: </Card.Title>
                     <Card.Text>
                     Location:
@@ -255,25 +303,63 @@ export default function Home () {
                     <Card.Text>
                     Experience:
                     </Card.Text>
+                    </div>
+                    
+                    <div className="col-lg-4 col-md-6">
+
+                    <div >
+                        <img src={Image2} alt="placeholder" />
+                    </div>
+                    </div>
+                    </div>
                 </Card.Body>
             </Card>
-            <Card className="cardImg">
-                <img src="https://via.placeholder.com/150" alt="placeholder" />
-            </Card>
-        </div>
-        <div className="row">
+            </div>
+            <div className="row">
             <Card className="card cardInfo border-dark rounded">
-                <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item>
-                        <Nav.Link href="#first">Active</Nav.Link>
+
+                <Card.Body >
+                    <div className="row">
+                        <div className="col-lg-12">
+                        <Card.Header >
+                            <Nav variant="tabs" defaultActiveKey="#first">
+                            <Nav.Item>
+                                <Nav.Link href="#first">Incident Details</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                        <Nav.Link variant="primary" onClick={() => setLgShow(true)}>
+                        Map
+                    </Nav.Link>
+
+                        <Modal
+                            size="lg"
+                            show={lgShow} 
+                            onHide={() => setLgShow(false)} dialogClassName="modal-90w"  
+                            aria-labelledby="example-custom-modal-styling-title"        
+                        >
+                            {/* <Modal.Header closeButton> */}
+                                {/* <Modal.Title id="example-custom-modal-styling-title">Modal heading</Modal.Title> */}
+                            {/* </Modal.Header>  */}
+                            {/* <Modal.Body> */}
+                                <Container className="homeMap">
+                                    <MapContainer 
+                                        closeButton
+                                        style={mapStyles}
+                                    />
+                                </Container>
+                            {/* </Modal.Body> */}
+                        </Modal>
+
                     </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#link">Map</Nav.Link>
-                    </Nav.Item>
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
+                            </Nav>
+                        </Card.Header>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div className="row">
+                    <div className="col-lg-8">
                     <Card.Title>User: </Card.Title>
                     <Card.Text>
                     Location:
@@ -287,44 +373,22 @@ export default function Home () {
                     <Card.Text>
                     Experience:
                     </Card.Text>
+                    </div>
+                    
+                    <div className="col-lg-4 col-md-6">
+
+                    <div >
+                        <img src={Image2} alt="placeholder" />
+                    </div>
+                    </div>
+                    </div>
                 </Card.Body>
             </Card>
-            <Card className="cardImg">
-                <img src="https://via.placeholder.com/150" alt="placeholder" />
-            </Card>
-        </div>
-        <div className="row">
-            <Card className="card cardInfo border-dark rounded">
-                <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item>
-                        <Nav.Link href="#first">Active</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#link">Map</Nav.Link>
-                    </Nav.Item>
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
-                    <Card.Title>User: </Card.Title>
-                    <Card.Text>
-                    Location:
-                    </Card.Text>
-                    <Card.Text>
-                    Description: 
-                    </Card.Text>
-                    <Card.Text>
-                    Image:
-                    </Card.Text>
-                    <Card.Text>
-                    Experience:
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card className="cardImg">
-                <img src="https://via.placeholder.com/150" alt="placeholder" />
-            </Card>
-        </div>
+            </div>
+        <br />
+        <br />
+        <br />
+
 
         <Footer />
     </Container>

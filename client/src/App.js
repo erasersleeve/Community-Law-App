@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import API from "./utils/API";
 
 function App() {
+  const [userId, setUserId] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
     getUser();
@@ -24,6 +25,8 @@ function App() {
       console.log(response);
       if (response.data.user) {
         setLoggedIn(true);
+        setUserId(response.data.user._id);
+        console.log(response.data.user._id);
       } else {
         setLoggedIn(false);
       }
@@ -74,7 +77,7 @@ function App() {
           <Route
             exact
             path="/map"
-            component={() => <Map loggedIn={loggedIn} handleLogout={handleLogout} renderRedirect={renderRedirect} setRedirect={setRedirect}/>}
+            component={() => <Map userId={userId} loggedIn={loggedIn} handleLogout={handleLogout} renderRedirect={renderRedirect} setRedirect={setRedirect}/>}
           />
           <Route
             exact

@@ -27,7 +27,26 @@ const Styles = styled.div`
 
 
 
-function Resources() {
+function Resources(props) {
+
+//     const [redirect, setRedirect] = useState(false);
+//   useEffect(() => {
+//     if (props.loggedIn == false) {
+//       setRedirect(true);
+//     }
+//   }, []);
+
+//   const renderRedirect = () => {
+//     if (redirect == true) {
+//       return <Redirect to="/" />;
+//     }
+//   };
+    useEffect(() => {
+    if (props.loggedIn == false){
+        props.setRedirect("/")
+    }
+}, [])
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -36,8 +55,8 @@ function Resources() {
     return (
         <Styles>
         <Container fluid>
-
-            <NavBar />
+        {props.renderRedirect()}
+            <NavBar handleLogout={props.handleLogout}/>
             <Card className="card cardInfo border-dark rounded">
                 <Card.Header className="header">
                     <h2>Article Name</h2>

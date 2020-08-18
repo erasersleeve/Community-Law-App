@@ -9,19 +9,19 @@ import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CarouselBanner from "../../components/Carousel/CarouselBanner";
 import SignUp from "../SignUp/SignUp";
-import image from "../../image/philadelphiabackground.jpg"
+import image from "../../image/philadelphiabackground.jpg";
 import NavBarLogin from "./NavbarLogin";
 
 const backgroundStyle = {
   backgroundImage: `url(${image}`,
   backgroundSize: "cover",
   width: "100%",
-}
+};
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirectTo, setRedirectTo] = useState("");
+  // const [redirectTo, setRedirectTo] = useState("");
   const [message, setMessage] = useState("");
 
   const handleClick = (event) => {
@@ -40,7 +40,8 @@ const LoginForm = () => {
           //     email: res.data.email,
           //   });
           // update the state to redirect to home
-          setRedirectTo("/home");
+          props.setLoggedIn(true)
+          props.setRedirect("/home");
         }
       })
       .catch((error) => {
@@ -49,20 +50,20 @@ const LoginForm = () => {
         setMessage("Invalid Email or Password");
       });
   };
+  
 
-  return redirectTo ? (
-    <Redirect to={redirectTo} />
-  ) : (
+  return (
     <div>
-      <NavBarLogin />
-      <div className="backgroundStyle" style={backgroundStyle}>
-        <div>
-        <h1 className="headerText headerImage">
-          CELP : Yelp for Cops <i class="fas fa-search-location"></i>
-        </h1>
+          {props.renderRedirect()}
+      <Container fluid className="containerColor">
+        <NavBarLogin handleLogout={props.handleLogout}/>
+        <div className="backgroundStyle" style={backgroundStyle}>
+          <div>
+            <h1 className="headerText headerImage">
+              CELP : Yelp for Cops <i class="fas fa-search-location"></i>
+            </h1>
+          </div>
         </div>
-      </div>
-      <Container fluid>
         <Row className="align-items-center">
           <Col md={{ span: 6, offset: 1 }} className="LoginForm">
             <CarouselBanner />

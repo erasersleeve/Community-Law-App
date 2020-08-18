@@ -50,24 +50,24 @@ const Styles = styled.div`
 `
 
 function Home (props) {
-    const [redirect, setRedirect] = useState(false)
+    // const [redirect, setRedirect] = useState(false)
     useEffect(() => {
         if (props.loggedIn == false){
-            setRedirect(true)
+            props.setRedirect(true)
         }
     }, [])
 
-    const renderRedirect= () => {
-        if (redirect == true){
-            return <Redirect to="/"/>
-        }
-    }
+    // const renderRedirect= () => {
+    //     if (redirect == true){
+    //         return <Redirect to="/"/>
+    //     }
+    // }
 
     return (
     <Styles className="body">
-    {renderRedirect()}
+    {props.renderRedirect()}
     <Container fluid>
-        <NavBar />
+        <NavBar handleLogout={props.handleLogout}/>
         <h2>Public Feed</h2>
         <div className="row">
             <Card className="card cardInfo border-dark rounded">

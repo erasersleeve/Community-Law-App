@@ -8,18 +8,25 @@ import { Redirect } from "react-router-dom";
 
 
 function Map(props) {
-  const [redirect, setRedirect] = useState(false);
-  useEffect(() => {
-    if (props.loggedIn == false) {
-      setRedirect(true);
-    }
-  }, []);
+  // const [redirect, setRedirect] = useState(false);
+  // useEffect(() => {
+  //   if (props.loggedIn == false) {
+  //     setRedirect(true);
+  //   }
+  // }, []);
 
-  const renderRedirect = () => {
-    if (redirect == true) {
-      return <Redirect to="/" />;
+  // const renderRedirect = () => {
+  //   if (redirect == true) {
+  //     return <Redirect to="/" />;
+  //   }
+  // };
+
+  useEffect(() => {
+    if (props.loggedIn == false){
+        props.setRedirect("/")
     }
-  };
+}, [])
+
   const [latLng, setLatLng] = useState({ lat: 39.9526, lng: -75.1652 });
 
   const getLatLng = (coordinates) => {
@@ -28,8 +35,8 @@ function Map(props) {
 
   return (
     <Container fluid>
-      {renderRedirect()}
-      <Navbar />
+      {props.renderRedirect()}
+      <Navbar handleLogout={props.handleLogout}/>
       <Button>Submit</Button>
       <Container>
         <MapContainer

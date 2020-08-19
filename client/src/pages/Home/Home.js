@@ -47,11 +47,11 @@ const Styles = styled.div`
 
 export default function Home (props) {
     // const [redirect, setRedirect] = useState(false)
-    useEffect(() => {
-        if (props.loggedIn == false){
-            props.setRedirect(true)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (props.loggedIn == false){
+    //         props.setRedirect("/login")
+    //     }
+    // }, [])
 
     // const renderRedirect= () => {
     //     if (redirect == true){
@@ -93,8 +93,7 @@ export default function Home (props) {
     <Container fluid className="test">
     {props.renderRedirect()}
 
-        <NavBar />
-        
+    <NavBar handleLogout={props.handleLogout}/>        
         {posts.length ? (
                 <List>
                     {posts.map(post => {

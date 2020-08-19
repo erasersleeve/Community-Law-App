@@ -40,6 +40,8 @@ function Map(props) {
         console.log(body);
         console.log(data);
         API.savePost(body).then(response => {
+            setShow(false);
+            props.setRedirect("/home")
             console.log("Save Post", response)
         }).catch(err => {
             console.log(err)

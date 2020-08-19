@@ -145,11 +145,6 @@ export default function Home (props) {
     <>
     <Styles style={backgroundStyle}>
 
-
-
-
-
-
         <NavBar />
 
         <h2>Public Feed</h2>

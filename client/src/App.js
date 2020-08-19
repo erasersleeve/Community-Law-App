@@ -84,6 +84,11 @@ function App() {
             path="/resources"
             component={() => <Resources loggedIn={loggedIn} handleLogout={handleLogout} renderRedirect={renderRedirect} setRedirect={setRedirect}/>}
           />
+          <Route
+            exact
+            path="/logout"
+            component={() => <Resources loggedIn={loggedIn} handleLogout={handleLogout} renderRedirect={renderRedirect} setRedirect={setRedirect}/>}
+          />
         </main>
       </Router>
     </>

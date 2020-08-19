@@ -31,27 +31,20 @@ const Styles = styled.div`
     }
     .jumbotron {
         position: relative;
-        // margin-top: 100px;
-        // padding-top: 0;
-        // padding-bottom: 0;
-        // width: 100%;
-        // height: auto;
-        // max-height: 625px;
-        // min height: 100px;
+        height: 500px;
     }
     .header {
         width: 100%;
     }
-    .test {
-        margin-top: -100px;
+    .wrapper {
+        margin-top: -60px;
         width: 100%;
     }
 `
 const backgroundStyle = {
     backgroundImage: `url(${Image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "100% auto"
-    // backgroundSize: "cover",
+    // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
     // width: "100%"
 }
 function NavBarLogin(props) {
@@ -64,18 +57,18 @@ function NavBarLogin(props) {
         <header>
             <>
             <Styles>
-            <div className="test">
+            <div className="wrapper">
                 <Jumbotron fluid style={backgroundStyle}>
                     <Navbar expand="md">
-                        <Navbar.Brand href="/home" className="title ">Title</Navbar.Brand>
+                        <Navbar.Brand href="/home" className="title ">CELP</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="links basic-navbar-nav float-right">
                             <Nav className="mr-auto justify-content-end">
-                                <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link>
-                                <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link>
+                                {/* <Nav.Link href="/" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>Login</Nav.Link> */}
+                                {/* <Nav.Link href="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"}>Signup</Nav.Link> */}
                                 <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
-                                <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
-                                <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                                {/* <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link> */}
+                                {/* <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link> */}
                                 <Nav.Link onClick={props.handleLogout} className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Log Out</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

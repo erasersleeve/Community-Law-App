@@ -12,124 +12,26 @@ import API from "../../utils/API";
 function Map(props) {
     const [lgShow, setShow] = useState(false);
     const [latLng, setLatLng] = useState({ lat: 39.9526, lng: -75.1652 });
-    const [badExperienceData, setBadExperienceData] = useState([
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.985858621546505,
-            lng: -75.15346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 40.005858621546505,
-            lng: -75.18346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.905858621546505,
-            lng: -75.10346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.995858621546505,
-            lng: -75.10346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.905858621546505,
-            lng: -75.15346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.995858621546505,
-            lng: -75.16346630901078,
-        },
-        {
-            description: "stuff",
-            experience: "bad",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.995858621546505,
-            lng: -75.14346630901078,
-        },
-    ]);
-
-    const [goodExperienceData, setGoodExperienceData] = useState([
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.9926,
-            lng: -75.1052,
-        },
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.8926,
-            lng: -75.2252,
-        },
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.9626,
-            lng: -75.1352,
-        },
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.9654,
-            lng: -75.1759,
-        },
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.9916,
-            lng: -75.1965,
-        },
-        {
-            description: "stuff",
-            experience: "good",
-            badgeNumber: 123,
-            // file: form.get('file'),
-            lat: 39.9525,
-            lng: -75.1654,
-        },
-    ]);
+    const [badExperienceData, setBadExperienceData] = useState([{ lat: 123, lng: 123 }]);
+    const [goodExperienceData, setGoodExperienceData] = useState([{ lat: 123, lng: 123 }]);
 
     const getLatLng = (coordinates) => {
         setLatLng(coordinates.latLng.toJSON());
     };
 
-    const updateData = () => {
-        // get data for google heatmaps
-        // and store in good/badExperienceData
+    const updateData = async () => {
+        const response = await API.getPosts();
+
+        const goodData = response.data.filter(submission => submission.experience == "Good");
+        const badData = response.data.filter(submission => submission.experience == "Bad");
+        setGoodExperienceData(goodData);
+        setBadExperienceData(badData);
+        console.log(goodData);
     };
+
+    useEffect(_ => {
+        updateData();
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -151,9 +53,10 @@ function Map(props) {
         }
 
         API.savePost(body);
-        updateData();
+        updateData();   
         setShow(false);
     };
+
     return (
         <Container fluid>
             <Navbar />

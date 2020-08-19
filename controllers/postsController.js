@@ -16,14 +16,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body);
     db.Post
       .create(req.body.data)
       .then(dbModel => { 
         db.User.findByIdAndUpdate(req.body.id, 
           { $push: { posts: dbModel._id } })
         .then( result=> { res.json(result) })
-        .catch(err => res.status(422).json(err))
+        .catch(err => {
+          console.log(err);
+          res.status(422).json(err)
+        });
         // res.json(dbModel) 
       })
       .catch(err => res.status(422).json(err));

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Map, HeatMap, GoogleApiWrapper } from 'google-maps-react';
 import "./GoogleHeatMap.css";
 
@@ -9,6 +9,11 @@ const style = {
 
 function GoogleHeatMap(props) {
     const { ratingData } = props;
+    const [positions, setPositions] = useState([]);
+
+    useEffect(_ => {
+        setPositions(ratingData.map(item => {return {"lat": item.lat, "lng": item.lng}}));
+    }, [ratingData])
 
     return (
         <div>
@@ -23,7 +28,7 @@ function GoogleHeatMap(props) {
             >
                 <HeatMap
                     opacity={.5}
-                    positions={ratingData}
+                    positions={positions}
                 // radius={1000}
                 />
             </Map>

@@ -60,7 +60,7 @@ const LoginForm = (props) => {
         <div className="backgroundStyle" style={backgroundStyle}>
           <div>
             <h1 className="headerText headerImage">
-              CELP : Yelp for Cops <i class="fas fa-search-location"></i>
+              CELP : Rate-A-Cop <i class="fas fa-search-location"></i>
             </h1>
           </div>
         </div>

@@ -91,6 +91,7 @@ export default function Home (props) {
 
 
     <Container fluid className="test">
+    {props.renderRedirect()}
 
         <NavBar />
         

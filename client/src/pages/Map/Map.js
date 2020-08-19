@@ -8,13 +8,15 @@ import MapContainer from "./MapContainer";
 import GoogleHeatMap from "../../components/GoogleHeatMap";
 // import MapsModal from "../../components/Modul";
 import API from "../../utils/API";
-function Map() {
+function Map(props) {
     const [lgShow, setShow] = useState(false);
     // const [lgShow, setLgShow] = useState(false);
     const [latLng, setLatLng] = useState({ lat: 39.9526, lng: -75.1652 });
     const getLatLng = (coordinates) => {
         setLatLng(coordinates.latLng.toJSON());
     };
+
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -25,18 +27,27 @@ function Map() {
             // file: form.get('file'),
             lat: latLng.lat,
             lng: latLng.lng,
-            date: new Date,
+            date: new Date
+        };
+
+        const body = {
+            data: data,
+            //update with real user id
+            id: props.userId
         }
         // Ajax call
         console.log("THIS IS DATA :)")
-        console.log(data);
-        API.savePost(data).then(response => {
-            console.log(response)
+        console.log(body);
+        API.savePost(body).then(response => {
+            console.log("Save Post", response)
+        }).catch(err => {
+            console.log(err)
         });
     };
     return (
         <Container fluid>
-            <Navbar />
+            {props.renderRedirect()}
+            <Navbar handleLogout={props.handleLogout}/>
             <Button onClick={() => setShow(true)}>Submit Incident</Button>
             <GoogleHeatMap />
             <Modal
@@ -61,4 +72,5 @@ function Map() {
         </Container>
     )
 }
+
 export default Map;

@@ -149,14 +149,10 @@ function Map(props) {
             //update with real user id
             id: props.userId
         }
-        // Ajax call
-        console.log("THIS IS DATA :)")
-        console.log(data);
-        // API.savePost(data).then(response => {
-        //     console.log(response)
-        // });
 
+        API.savePost(body);
         updateData();
+        setShow(false);
     };
     return (
         <Container fluid>
@@ -179,13 +175,9 @@ function Map(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {/* <MapContainer clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} /> */}
                     <Form clicked={(target, map, coordinates) => { getLatLng(coordinates) }} positions={latLng} submit={e => { handleSubmit(e) }} />
-                    {/* <MapContainer /> */}
                 </Modal.Body>
             </Modal>
-            {/* <Container> */}
-            {/* </Container> */}
             <Footer />
         </Container>
     )

@@ -8,7 +8,7 @@ Using the Google Maps API, we offer the user the accessability of selecting a pi
 # Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
+* [Links](#links)
 * [Contributors](#contributors)
 * [Test](#test)
 * [Questions](#questions)
@@ -17,8 +17,12 @@ Using the Google Maps API, we offer the user the accessability of selecting a pi
  
 To install the necessary dependencies, run the following command: 
 npm i.
-# License
-None
+# Links
+Deployed Heroku: https://protected-oasis-50436.herokuapp.com/home
+
+Github Repo: https://github.com/erasersleeve/Community-Law-App
+
+
 ![](https://img.shields.io/badge/build-readme-green)
 # Contributors
 * [Andrew Hall](https://github.com/AndrewbHall96)

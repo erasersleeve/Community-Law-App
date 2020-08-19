@@ -1,8 +1,8 @@
 import axios from "axios";
-
 export default {
   //get all posts
-  getPosts: function() {
+  getPosts: function(data) {
+    console.log(data)
     return axios.get("/api/posts");
   },
   // Gets the post with the given id
@@ -20,12 +20,13 @@ export default {
   },
   // Gets all users
   getUsers: function() {
-    return axios.get("/api/user");
+    return axios.get("/api/user/");
   },
-
-savePost: function(postData) {
-  return axios.post("/api/posts", postData);
-
-}
- 
+ //Logout User
+ logOut: function(){
+   return axios.post("/api/user/logout")
+ },
+  savePost: function(postData) {
+    return axios.post("/api/posts", postData);
+  }
 };

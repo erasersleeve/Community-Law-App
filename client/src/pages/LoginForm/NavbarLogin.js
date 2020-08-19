@@ -1,17 +1,8 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Nav, Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Redirect } from "react-router-dom";
-import axios from "axios";
-import "./NavBar.css";
-
-// import "./Navbar.css";
-import Image from "../image/kelly-kiernan.jpeg";
-
-
-
+import Image from "../../image/philadelphiabackground.jpg";
 
 const Styles = styled.div`
     .navbar {
@@ -21,74 +12,55 @@ const Styles = styled.div`
         width: 100%;
         font-family: Andale Mono;
     }
-
     .navbar-light .navbar-nav .nav-link {
         color: #fff8f0ff;
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         font-size: 125%;
     }
-
     .navbar-brand {
         color: #ffcf99ff;
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         font-size: 200%;
     }   
-
     .title {
         padding: 5px;
         font-family: Frutiger;
-
     }
-
     .links {
         margin-right: -50%;
     }
-
     .jumbotron {
         position: relative;
         // margin-top: 100px;
         // padding-top: 0;
         // padding-bottom: 0;
         // width: 100%;
-        height: 550px;
+        // height: auto;
         // max-height: 625px;
         // min height: 100px;
     }
-
     .header {
         width: 100%;
     }
-
-    // .test {
-    //     margin-top: -100px;
-    //     width: 100%;
-    // }
-
+    .test {
+        margin-top: -100px;
+        width: 100%;
+    }
 `
 const backgroundStyle = {
     backgroundImage: `url(${Image})`,
-    backgroundSize: "cover"
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% auto"
+    // backgroundSize: "cover",
+    // width: "100%"
 }
+function NavBarLogin(props) {
 
-function NavBar(props) {
     const location = useLocation();
 
     // const [redirectTo, setRedirectTo] = useState("");
 
-    // const handleLogout = (event) => {
-    //     axios
-    //       .post("/api/user/logout")
-    //       .then((res) => {
-    //         console.log(res);
-    //         if (res.status === 200) {
-
-    //           setRedirectTo("/");
-    //         }
-    //       })
-    //   };
-
     return (
-
         <header>
             <>
             <Styles>
@@ -104,6 +76,7 @@ function NavBar(props) {
                                 <Nav.Link href="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"}>Home</Nav.Link>
                                 <Nav.Link href="/map" className={location.pathname === "/map" ? "nav-link active" : "nav-link"}>Map</Nav.Link>
                                 <Nav.Link href="/resources" className={location.pathname === "/resources" ? "nav-link active" : "nav-link"}>Resources</Nav.Link>
+                                <Nav.Link onClick={props.handleLogout} className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Log Out</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -111,10 +84,7 @@ function NavBar(props) {
             </div>
             </Styles>
             </>
-
         </header>
     )
 }
-
-export default NavBar
-
+export default NavBarLogin;

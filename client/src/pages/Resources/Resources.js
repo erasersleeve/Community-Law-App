@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import React, {  useState } from "react";
+import { Container } from "../../components/Grid";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Card, Modal, Nav, Button } from 'react-bootstrap';
+import { Card, Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from "../../image/panoramicImg.jpeg";
+import { Redirect } from "react-router-dom";
+
 
 
 const Styles = styled.div`
@@ -25,17 +28,35 @@ const Styles = styled.div`
 
 
 
-function Resources() {
+function Resources(props) {
+
+//     const [redirect, setRedirect] = useState(false);
+//   useEffect(() => {
+//     if (props.loggedIn == false) {
+//       setRedirect(true);
+//     }
+//   }, []);
+
+//   const renderRedirect = () => {
+//     if (redirect == true) {
+//       return <Redirect to="/" />;
+//     }
+//   };
+//     useEffect(() => {
+//     if (props.loggedIn == false){
+//         props.setRedirect("/")
+//     }
+// }, [])
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     return (
         <Styles>
         <Container fluid>
-
-            <NavBar />
+        {props.renderRedirect()}
+            <NavBar handleLogout={props.handleLogout}/>
             <Card className="card cardInfo border-dark rounded">
                 <Card.Header className="header">
                     <h2>Article Name</h2>

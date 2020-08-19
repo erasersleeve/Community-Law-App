@@ -22,7 +22,7 @@ function CarouselBanner() {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h1 className="textColor slideText">Welcome to CELP: Yelp for Cops!</h1>
+                  <h1 className="textColor slideText">Welcome to CELP: Rate-A-Cop!</h1>
                   <h4 className="textColor slideText">
                     The one-stop application for tracking Philadelphia community crime.
                   </h4>

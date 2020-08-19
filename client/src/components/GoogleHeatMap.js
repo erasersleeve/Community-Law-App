@@ -9,10 +9,10 @@ const style = {
 
 function GoogleHeatMap(props) {
     const { ratingData } = props;
-    const [positions, setPositions] = useState([]);
+    const [positions, setPositions] = useState(ratingData.map(item => {return {"lat": parseFloat(item.lat), "lng": parseFloat(item.lng)}}));
 
     useEffect(_ => {
-        setPositions(ratingData.map(item => {return {"lat": item.lat, "lng": item.lng}}));
+        setPositions(ratingData.map(item => {return {"lat": parseFloat(item.lat), "lng": parseFloat(item.lng)}}));
     }, [ratingData])
 
     return (
@@ -27,7 +27,7 @@ function GoogleHeatMap(props) {
                 }}
             >
                 <HeatMap
-                    opacity={.5}
+                    opacity={1}
                     positions={positions}
                 // radius={1000}
                 />

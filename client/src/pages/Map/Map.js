@@ -26,7 +26,6 @@ function Map(props) {
         const badData = response.data.filter(submission => submission.experience == "Bad");
         setGoodExperienceData(goodData);
         setBadExperienceData(badData);
-        console.log(goodData);
     };
 
     useEffect(_ => {

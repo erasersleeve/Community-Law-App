@@ -46,15 +46,16 @@ const Styles = styled.div`
 }
 
 `
-function Resources() {
+function Resources(props) {
     const [lgShow, setLgShow] = useState(false);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     // const handleShow = () => setShow(true);
     return (
         <Styles>
+        {props.renderRedirect()}
         <Container fluid>
-            <NavBar/>
+            <NavBar handleLogout={props.handleLogout}/>
             <div className="row">
                 <Card className="card cardInfo border-dark">
                 <Card.Body >

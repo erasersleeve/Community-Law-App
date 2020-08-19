@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Container } from "../../components/Grid";
-import Navbar from "../../components/Navbar";
+import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Button, Modal, Col } from 'react-bootstrap';
 import Form from "../../components/Form";
@@ -152,15 +152,23 @@ function Map(props) {
         // Ajax call
         console.log("THIS IS DATA :)")
         console.log(data);
+        API.savePost(body).then(response => {
+            setShow(false);
+            props.setRedirect("/home")
+            console.log("Save Post", response)
+        }).catch(err => {
+            console.log(err)
+        });
         // API.savePost(data).then(response => {
         //     console.log(response)
         // });
 
-        updateData();
+        // updateData(); cc not sure if we need this or not
     };
     return (
         <Container fluid>
-            <Navbar />
+        {props.renderRedirect()}
+        <NavBar handleLogout={props.handleLogout}/>
             <Row>
                 <Button onClick={() => setShow(true)}>Submit Incident</Button>
             </Row>

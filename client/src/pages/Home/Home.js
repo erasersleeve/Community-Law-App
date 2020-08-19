@@ -104,11 +104,11 @@ const Styles = styled.div`
 
 export default function Home (props) {
     // const [redirect, setRedirect] = useState(false)
-    useEffect(() => {
-        if (props.loggedIn == false){
-            props.setRedirect(true)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (props.loggedIn == false){
+    //         props.setRedirect("/login")
+    //     }
+    // }, [])
 
     // const renderRedirect= () => {
     //     if (redirect == true){
@@ -145,7 +145,13 @@ export default function Home (props) {
     <>
     <Styles style={backgroundStyle}>
 
-        <NavBar />
+
+
+
+    <Container fluid className="test">
+    {props.renderRedirect()}
+
+    <NavBar handleLogout={props.handleLogout}/>     
 
         <h2>Public Feed</h2>
         
@@ -232,7 +238,7 @@ export default function Home (props) {
 
 
         <Footer />
-
+    </Container>
     </Styles>
     </>
 

@@ -1,7 +1,8 @@
 import axios from "axios";
 export default {
   //get all posts
-  getPosts: function() {
+  getPosts: function(data) {
+    console.log(data)
     return axios.get("/api/posts");
   },
   // Gets the post with the given id

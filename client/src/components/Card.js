@@ -68,7 +68,7 @@ img {
     border-radius: 4px !important;
 }
 `
-export default function RenderCard () {
+export default function RenderCard (props) {
     const [show, setShow] = useState(false);
     const [lgShow, setLgShow] = useState(false);
 
@@ -116,9 +116,9 @@ export default function RenderCard () {
                         <div className="row">
                         <div className="col-lg-8">
                         <Card.Title id="user"></Card.Title>
-                        <Card.Text id="description"></Card.Text>
-                        <Card.Text id="badge"></Card.Text>
-                        <Card.Text id="experience"></Card.Text>
+                        <Card.Text onInvalidCapture="description">{props.description}</Card.Text>
+                        <Card.Text onInvalidCapture="badge"></Card.Text>
+                        <Card.Text onInvalidCapture="experience"></Card.Text>
                         </div>
                         <div className="col-lg-4 col-md-6">
                         <div className="imgTest">

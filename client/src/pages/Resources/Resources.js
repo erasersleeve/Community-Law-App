@@ -54,7 +54,7 @@ function Resources() {
     return (
         <Styles>
         <Container fluid>
-            <NavBar />
+            <NavBar/>
             <div className="row">
                 <Card className="card cardInfo border-dark">
                 <Card.Body >
